@@ -22,9 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              height: 120,
-            ),
+            SizedBox(height: 120,),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 9),
               child: Text(
@@ -35,9 +33,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox( height: 20,),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 9),
               child: OutlinedButton(
@@ -59,9 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 6,
-            ),
+            SizedBox( height: 6,),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 9),
               child: OutlinedButton(
