@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import '../constant.dart';
+import '../../constant.dart';
+import 'add_product.dart';
+import 'favorite.dart';
+import 'profile.dart';
 
-class Favorite extends StatefulWidget {
-  const Favorite({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _FavoriteState createState() => _FavoriteState();
+  _HomeState createState() => _HomeState();
 }
 
-class _FavoriteState extends State<Favorite> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

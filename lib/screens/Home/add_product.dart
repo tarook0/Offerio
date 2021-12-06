@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constant.dart';
+import '../../constant.dart';
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
