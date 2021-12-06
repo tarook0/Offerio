@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Offerio',
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'fourth',
+      initialRoute: 'one',
       routes: {
         'one': (context) => WelcomeScreen(),
         'second': (context) => Login(),
