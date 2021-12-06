@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/screens/Home/add_product.dart';
 import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
+import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/screens/Home/profile.dart';
 import 'package:my_app/screens/Home/search.dart';
 
@@ -26,7 +27,7 @@ class _navBarState extends State<navBar> {
     Product(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Home();
+  Widget currentScreen = homeScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class _navBarState extends State<navBar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home();
+                        currentScreen = homeScreen();
                         currentTab = 0;
                       });
                     },
@@ -131,7 +132,7 @@ class _navBarState extends State<navBar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.account_balance_outlined,
+                        Icon(Icons.account_box_rounded,
                             color: currentTab == 3 ? Colors.red : sandybrown),
                         Text(
                           'Profile',
