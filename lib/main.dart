@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'screens/Home/home.dart';
 import 'screens/sign_log/log_in_screen.dart';
@@ -16,12 +18,13 @@ class MyApp extends StatelessWidget {
       title: 'Offerio',
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'forth',
-      // routes: {
-      //   'one': (context) => WelcomeScreen(),
-      //   'second': (context) => Login(),
-      //   'third': (context) => Signup(),
-      // },
+      initialRoute: 'fourth',
+      routes: {
+        'one': (context) => WelcomeScreen(),
+        'second': (context) => Login(),
+        'third': (context) => Signup(),
+        'fourth': (context) => Home(),
+      },
     );
   }
 }

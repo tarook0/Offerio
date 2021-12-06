@@ -8,6 +8,7 @@ final Color sandybrown = Colour('F4A261');
 final Color sienna = Colour('#E76F51');
 
 final TextStyle kTitleStyle = TextStyle(
+  fontFamily: 'Pacifico',
   fontSize: 15,
   fontWeight: FontWeight.bold,
   color: charcoal,

@@ -1,16 +1,14 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import '../../constant.dart';
 
-class Favorite extends StatefulWidget {
-  const Favorite({Key? key}) : super(key: key);
+class Search extends StatefulWidget {
+  const Search({Key? key}) : super(key: key);
 
   @override
-  _FavoriteState createState() => _FavoriteState();
+  _SearchState createState() => _SearchState();
 }
 
-class _FavoriteState extends State<Favorite> {
+class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

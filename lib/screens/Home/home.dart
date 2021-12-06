@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../moudels/navBar.dart';
 import '../../constant.dart';
 import 'add_product.dart';
 import 'favorite.dart';
 import 'profile.dart';
+import 'search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,11 +18,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favorit'),
+        title: Text('offero', style: kTitleStyle),
+        centerTitle: false,
+        backgroundColor: persian,
       ),
-      body: Center(
-        child: Text('Favorit', style: kTitleStyle),
-      ),
+      bottomNavigationBar: const navBar(),
     );
   }
 }
