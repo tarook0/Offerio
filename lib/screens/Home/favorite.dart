@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/app_bar.dart';
 import '../../constant.dart';
 
 class Favorite extends StatefulWidget {
@@ -14,9 +15,7 @@ class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Favorit'),
-      ),
+      appBar: buildAppBar(),
       body: Center(
         child: Text('Favorit', style: kTitleStyle),
       ),

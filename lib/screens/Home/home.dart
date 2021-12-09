@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../moudels/navBar.dart';
 import '../../constant.dart';
+import '../../moudels/app_bar.dart';
 import 'add_product.dart';
 import 'favorite.dart';
 import 'profile.dart';
@@ -18,6 +19,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(360)),
         title: Text('offero', style: kTitleStyle),
         centerTitle: false,
         backgroundColor: persian,

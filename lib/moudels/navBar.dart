@@ -37,8 +37,16 @@ class _navBarState extends State<navBar> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: persian,
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          setState(
+            () {
+              currentScreen = Product();
+              currentTab = 4;
+            },
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

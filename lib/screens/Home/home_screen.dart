@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/app_bar.dart';
 
 import '../../constant.dart';
 
@@ -13,9 +14,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Favorit'),
-      ),
+      appBar: buildAppBar(),
       body: Center(
         child: Text('Favorit', style: kTitleStyle),
       ),
