@@ -72,11 +72,11 @@ class _navBarState extends State<navBar> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.home_outlined,
-                            color: currentTab == 0 ? Colors.red : sandybrown),
+                            color: currentTab == 0 ? sandybrown : charcoal),
                         Text(
                           'Home',
                           style: TextStyle(
-                              color: currentTab == 0 ? Colors.red : sandybrown),
+                              color: currentTab == 0 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
                         )
                       ],
                     ),
@@ -92,12 +92,12 @@ class _navBarState extends State<navBar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.favorite,
-                            color: currentTab == 1 ? Colors.red : sandybrown),
+                        Icon(Icons.favorite_border,
+                            color: currentTab == 1 ? sandybrown : charcoal),
                         Text(
-                          'Favorit',
+                          'Favorite',
                           style: TextStyle(
-                              color: currentTab == 1 ? Colors.red : sandybrown),
+                              color: currentTab == 1 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
                         )
                       ],
                     ),
@@ -119,12 +119,12 @@ class _navBarState extends State<navBar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.home_outlined,
-                            color: currentTab == 2 ? Colors.red : sandybrown),
+                        Icon(Icons.search,
+                            color: currentTab == 2 ? sandybrown : charcoal),
                         Text(
                           'Search',
                           style: TextStyle(
-                              color: currentTab == 2 ? Colors.red : sandybrown),
+                              color: currentTab == 2 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
                         )
                       ],
                     ),
@@ -140,12 +140,12 @@ class _navBarState extends State<navBar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.account_box_rounded,
-                            color: currentTab == 3 ? Colors.red : sandybrown),
+                        Icon(Icons.person_outline,
+                            color: currentTab == 3 ? sandybrown : charcoal),
                         Text(
                           'Profile',
                           style: TextStyle(
-                              color: currentTab == 3 ? Colors.red : sandybrown),
+                              color: currentTab == 3 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
                         )
                       ],
                     ),
