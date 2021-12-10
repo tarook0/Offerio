@@ -14,6 +14,7 @@ class _ProductState extends State<Product> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Product'),
+        backgroundColor: charcoal,
       ),
       body: Center(
         child: Text('product', style: kTitleStyle),

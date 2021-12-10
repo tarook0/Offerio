@@ -8,7 +8,7 @@ List<Widget> buildHeader() => [
           top: kPadding,
         ),
         child: Text(
-          'Chose your products',
+          'Choose your products',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,

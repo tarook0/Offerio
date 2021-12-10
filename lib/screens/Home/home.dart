@@ -20,9 +20,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(360)),
-        title: Text('offero', style: kTitleStyle),
+        title: Text('offerio', style: kTitleStyle),
         centerTitle: false,
-        backgroundColor: persian,
+        backgroundColor: charcoal,
       ),
       bottomNavigationBar: const navBar(),
     );
