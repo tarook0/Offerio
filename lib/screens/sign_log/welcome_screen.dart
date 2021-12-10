@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/constant.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Text(
                   'Log in',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: white,
                     fontSize: 16,
                   ),
                 ),
@@ -73,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Text(
                   'Sign up',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: white,
                     fontSize: 16,
                   ),
                 ),

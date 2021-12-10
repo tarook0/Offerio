@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/constant.dart';
 
 class Signup extends StatefulWidget {
 
@@ -47,7 +48,7 @@ class _SignupState extends State<Signup> {
                         style: TextStyle(
                           fontSize: 30,
                           fontFamily: 'Pacifico',
-                          color: Color(0xff264653),
+                          color: charcoal,
                         ),
                       ),
                       SizedBox(
@@ -73,7 +74,7 @@ class _SignupState extends State<Signup> {
                             ),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xff264653),
+                                  color: charcoal,
                                   width: 2,
                                 )),
                           ),
@@ -107,11 +108,11 @@ class _SignupState extends State<Signup> {
                             ),
                             prefixIcon: Icon(
                               Icons.account_box,
-                              color: Color(0xff264653),
+                              color: charcoal,
                             ),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                              color: Color(0xff264653),
+                              color: charcoal,
                               width: 2,
                             )),
                           ),
@@ -147,12 +148,12 @@ class _SignupState extends State<Signup> {
                               fontSize: 16.5,
                             ),
                             prefixIcon: Icon(
-                              Icons.visibility,
-                              color: Color(0xff264653),
+                              Icons.lock,
+                              color: charcoal,
                             ),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                              color: Color(0xff264653),
+                              color: charcoal,
                               width: 2,
                             )),
                           ),
@@ -188,15 +189,16 @@ class _SignupState extends State<Signup> {
                             ),
                             prefixIcon: Icon(
                               Icons.phone,
-                              color: Color(0xff264653),
+                              color: charcoal,
                             ),
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                              color: Color(0xff264653),
+                              color: charcoal,
                               width: 2,
                             )),
                           ),
-                          validator: (String  value){
+                          validator: (String
+                          value){
 
                             if (value.isNotEmpty && (value.length<10 || value.length>10)){
                               return 'not correct';
@@ -226,14 +228,14 @@ class _SignupState extends State<Signup> {
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),
                               side: BorderSide(
-                                  width: 1.5, color: Color(0xff264653)),
+                                  width: 1.5, color:charcoal),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50.0),
                               )),
                           child: Text(
                             'Sign up',
                             style: TextStyle(
-                              color: Color(0xff264653),
+                              color: charcoal,
                               fontSize: 16,
                             ),
                           ),
@@ -252,7 +254,7 @@ class _SignupState extends State<Signup> {
 }
 
 class SignupTextfields extends StatelessWidget {
-  SignupTextfields({  this.x, this.y});
+  SignupTextfields({ @required this.x, @required this.y});
   bool x;
   TextInputType y ;
   @override
@@ -272,11 +274,11 @@ class SignupTextfields extends StatelessWidget {
         ),
         prefixIcon: Icon(
           Icons.email,
-          color: Color(0xff264653),
+          color: charcoal,
         ),
         focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-          color: Color(0xff264653),
+          color:charcoal,
           width: 2,
         )),
       ),
