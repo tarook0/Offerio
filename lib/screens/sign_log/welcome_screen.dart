@@ -35,6 +35,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
+                  fontFamily: 'EBGaramond',
                 ),
               ),
             ),
@@ -49,7 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 },
                 style: OutlinedButton.styleFrom(
                     minimumSize: Size(120, 42),
-                    side: BorderSide(width: 2, color: Colors.white),
+                    side: BorderSide(width: 1.5, color: Colors.white),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0),
                     )),
@@ -58,6 +59,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: TextStyle(
                     color: white,
                     fontSize: 16,
+                    fontFamily: 'EBGaramond',
                   ),
                 ),
               ),
@@ -73,7 +75,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 },
                 style: OutlinedButton.styleFrom(
                     minimumSize: Size(120, 42),
-                    side: BorderSide(width: 2, color: Colors.white),
+                    side: BorderSide(width: 1.5, color: Colors.white),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0),
                     )),
@@ -82,6 +84,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: TextStyle(
                     color: white,
                     fontSize: 16,
+                    fontFamily: 'EBGaramond',
                   ),
                 ),
               ),
