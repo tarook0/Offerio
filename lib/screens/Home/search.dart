@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/moudels/headar.dart';
+import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
 import '../../constant.dart';
 
@@ -19,10 +20,7 @@ class _SearchState extends State<Search> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ...buildHeader(),
-            buildSearchBar(),
-          ],
+          children: [...buildHeader(), buildSearchBar(), buildIconList()],
         ),
       ),
     );
