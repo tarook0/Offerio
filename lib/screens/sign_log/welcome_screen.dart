@@ -31,7 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 9),
               child: Text(
-                'make money...save money',
+                'Make money... Save money',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,

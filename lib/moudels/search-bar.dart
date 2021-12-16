@@ -4,21 +4,29 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 Widget buildSearchBar() => Padding(
-      padding: const EdgeInsets.all(2 * kPadding),
+      padding: const EdgeInsets.symmetric( horizontal: 12),
       child: TextField(
+        cursorColor: Colors.grey,
         decoration: InputDecoration(
-            hintText: 'search for product or profile',
-            fillColor: Colors.black.withOpacity(0.1),
-            filled: true,
-            prefixIcon: Icon(Icons.search),
-            focusColor: persian,
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 0.0,
-              horizontal: kPadding,
+          hintText: 'seacrh for product or profile',
+            hintStyle: TextStyle(
+              fontFamily: 'EBGaramond',
+              fontSize: 17,
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.0),
-              borderSide: BorderSide.none,
-            )),
+
+            prefixIcon: Icon(Icons.search,color: charcoal,),
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: charcoal,
+              ),
+
+            ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: charcoal,
+            width: 1.5,
+          )
+        )),
+
       ),
     );

@@ -17,7 +17,7 @@ class _FavoriteState extends State<Favorite> {
     return Scaffold(
       appBar: buildAppBar(),
       body: Center(
-        child: Text('Favorit', style: kTitleStyle),
+        child: Text('FAVORIT', style: kTitleStyle),
       ),
     );
   }

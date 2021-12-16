@@ -7,24 +7,107 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 import 'icon-model.dart';
 
-final List<IconModel> headerImages = IconModel.icons;
+//final List<IconModel> headerImages = IconModel.icons;
 Widget buildIconList() => Padding(
     padding: const EdgeInsets.only(bottom: kPadding),
     child: SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          headerImages.length,
-          (index) => Container(
-            width: 100,
-            child: Column(
-              children: [
-                Image.asset(headerImages[index].icon, height: 50, width: 50),
-                Text(headerImages[index].title, textAlign: TextAlign.center),
-              ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/fruit.png'),radius: 25,),
+                  Text('Fruit',style: TextStyle(fontSize: 12),),
+                ],
+              ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/veggies.png'),radius: 25,),
+                  Text('Veggies',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/meat-icon.png'),radius: 25,),
+                  Text('Meat',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/Candy-icon.png'),radius: 25,),
+                  Text('Candy',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/sauce.png'),radius: 25,),
+                  Text('Sauce',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/icon_1.png',),
+                    radius: 25,),
+                  Text('Beverages',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/drugs.png'),radius: 25,),
+                  Text('Drugs',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  CircleAvatar(child: GestureDetector(
+                    onTap: () {print('hello');},),
+                    backgroundImage: AssetImage('assets/icons/icon_3.png'),radius: 25,),
+                  Text('Makeup',style: TextStyle(fontSize: 12),),
+                ],
+              ),
+            ),
+          ]
           ),
-        ),
       ),
-    ));
+      ),
+    );

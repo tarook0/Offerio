@@ -20,7 +20,7 @@ class _ProfileState extends State<Profile> {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: <Widget>[
-                Container(
+               /* Container(
                   width: 300,
                   height: 280,
                   decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ],
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

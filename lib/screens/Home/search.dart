@@ -20,7 +20,10 @@ class _SearchState extends State<Search> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [...buildHeader(), buildSearchBar(), buildIconList()],
+          children: [
+            ...buildHeader(),
+            buildSearchBar(),
+            buildIconList()],
         ),
       ),
     );

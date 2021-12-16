@@ -7,10 +7,10 @@ import 'screens/sign_log/sign_up.dart';
 import 'screens/sign_log/welcome_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Offerio());
 }
 
-class MyApp extends StatelessWidget {
+class Offerio extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

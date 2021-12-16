@@ -16,7 +16,7 @@ class _homeScreenState extends State<homeScreen> {
     return Scaffold(
       appBar: buildAppBar(),
       body: Center(
-        child: Text('Favorit', style: kTitleStyle),
+        child: Text('home', style: kTitleStyle),
       ),
     );
   }
