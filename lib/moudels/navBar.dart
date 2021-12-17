@@ -1,5 +1,7 @@
-// ignore_for_file: file_names, prefer_const_constructors
 
+
+// ignore_for_file: file_names, prefer_const_constructors
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/screens/Home/add_product.dart';
 import 'package:my_app/screens/Home/favorite.dart';
@@ -10,7 +12,7 @@ import 'package:my_app/screens/Home/profile.dart';
 import '../constant.dart';
 
 class navBar extends StatefulWidget {
-  const navBar({Key? key}) : super(key: key);
+  const navBar({Key ? key}) : super(key: key);
 
   @override
   _navBarState createState() => _navBarState();
@@ -27,7 +29,7 @@ class _navBarState extends State<navBar> {
   ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = homeScreen();
-
+String  selectedCurrency = 'english' ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,17 +165,6 @@ class _navBarState extends State<navBar> {
       Navigator.pushNamed(context, 'fifth');
     }
   }
-  /*DropdownButton _languageoptions(){
-    return DropdownButton<String>(
-      items: <String>['arabic', 'english']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }*/
   Column _buildbottomnavigationmenue (){
     return Column(
       children: <Widget>[
@@ -186,11 +177,21 @@ class _navBarState extends State<navBar> {
         ListTile(
           leading: Icon(Icons.language),
           title: Text('Language'),
-          trailing: GestureDetector(child: Icon(Icons.keyboard_arrow_down_outlined),
-          onTap:(){
+          trailing:  DropdownButton<String>(
+              underline: Container(
 
-          }),
-        ),
+              ),
+              icon:  Icon(Icons.keyboard_arrow_down_outlined),
+              elevation: 16,
+              onChanged: (value){setState(() {
+
+              });},
+              items: [DropdownMenuItem(child: Text('arabic'),value: 'lk',),
+                DropdownMenuItem(child: Text('English'),value: 'hj',),
+      ]
+    ),
+          ),
+
         ListTile(
           leading: Icon(Icons.people),
           title: Text('About us'),
