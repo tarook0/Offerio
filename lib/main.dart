@@ -5,6 +5,7 @@ import 'screens/Home/home.dart';
 import 'screens/sign_log/log_in_screen.dart';
 import 'screens/sign_log/sign_up.dart';
 import 'screens/sign_log/welcome_screen.dart';
+import 'package:my_app/screens/settings.dart';
 
 void main() {
   runApp(Offerio());
@@ -24,6 +25,7 @@ class Offerio extends StatelessWidget {
         'second': (context) => Login(),
         'third': (context) => Signup(),
         'fourth': (context) => Home(),
+        'fifth': (context) => Settings(),
       },
     );
   }

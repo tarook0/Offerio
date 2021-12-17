@@ -5,7 +5,7 @@ import '../../moudels/app_bar.dart';
 import 'add_product.dart';
 import 'favorite.dart';
 import 'profile.dart';
-import 'search.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

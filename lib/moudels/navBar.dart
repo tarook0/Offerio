@@ -6,7 +6,6 @@ import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/screens/Home/profile.dart';
-import 'package:my_app/screens/Home/search.dart';
 
 import '../constant.dart';
 
@@ -23,7 +22,7 @@ class _navBarState extends State<navBar> {
     Home(),
     Favorite(),
     Profile(),
-    Search(),
+
     Product(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
@@ -112,27 +111,6 @@ class _navBarState extends State<navBar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Search();
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.search,
-                            color: currentTab == 2 ? sandybrown : charcoal),
-                        Text(
-                          'Search',
-                          style: TextStyle(
-                              color: currentTab == 2 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
-                        )
-                      ],
-                    ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
                         currentScreen = Profile();
                         currentTab = 3;
                       });
@@ -150,12 +128,103 @@ class _navBarState extends State<navBar> {
                       ],
                     ),
                   ),
+          MaterialButton(
+             minWidth: 40,
+             onPressed: () {
+               onButtonpressed();
+               setState(() {
+                 currentTab = 2;
+               });
+             },
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 Icon(Icons.list,
+                     color: currentTab == 2 ? sandybrown : charcoal),
+                 Text(
+                   'Other',
+                   style: TextStyle(
+                       color: currentTab == 2 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
+                 )
+               ],
+             ),
+           ),
+
                 ],
-              )
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+  void _selecteditem( int n ){
+    if (n==1){
+      Navigator.pushNamed(context, 'fifth');
+    }
+  }
+  /*DropdownButton _languageoptions(){
+    return DropdownButton<String>(
+      items: <String>['arabic', 'english']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }*/
+  Column _buildbottomnavigationmenue (){
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.settings),
+          title: Text('Settings'),
+          onTap:(){ _selecteditem(1);},
+
+        ),
+        ListTile(
+          leading: Icon(Icons.language),
+          title: Text('Language'),
+          trailing: GestureDetector(child: Icon(Icons.keyboard_arrow_down_outlined),
+          onTap:(){
+
+          }),
+        ),
+        ListTile(
+          leading: Icon(Icons.people),
+          title: Text('About us'),
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: Text('Logout'),
+        )
+      ],
+    );
+  }
+  void onButtonpressed (){
+    showModalBottomSheet(context: context, builder: (context) {
+      return Container(
+        height: 240,
+        color : Color(0xff737373),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(
+            start: 50,
+          ),
+          child: Container(
+            child: _buildbottomnavigationmenue(),
+            decoration: BoxDecoration(
+                color: white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+
+            ),
+          ),
+        ),
+      );
+    });
+
   }
 }

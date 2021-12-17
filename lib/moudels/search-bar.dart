@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 Widget buildSearchBar() => Padding(
-      padding: const EdgeInsets.symmetric( horizontal: 12),
+      padding: const EdgeInsets.symmetric( horizontal: 12,vertical:8 ),
       child: TextField(
         cursorColor: Colors.grey,
         decoration: InputDecoration(

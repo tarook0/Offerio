@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/back-to-front/products-handler.dart';
 import 'package:my_app/moudels/app_bar.dart';
-
+import 'package:my_app/moudels/icon-list.dart';
+import 'package:my_app/moudels/search-bar.dart';
 import '../../constant.dart';
 
 class homeScreen extends StatefulWidget {
@@ -22,9 +23,16 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Center(
-        child: Text('home', style: kTitleStyle),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildSearchBar(),
+              buildIconList(),
+            ],
+          ),
+        ),
+      );
+
   }
 }
