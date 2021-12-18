@@ -187,6 +187,7 @@ String  selectedCurrency = 'english' ;
           leading: Icon(Icons.language),
           title: Text('Language'),
           trailing:  DropdownButton<String>(
+            value: null,
               underline: Container(
 
               ),
@@ -195,8 +196,8 @@ String  selectedCurrency = 'english' ;
               onChanged: (value){setState(() {
 
               });},
-              items: [DropdownMenuItem(child: Text('arabic'),value: 'lk',),
-                DropdownMenuItem(child: Text('English'),value: 'hj',),
+              items: [DropdownMenuItem(child: Text('arabic'),value: 'dds',),
+                DropdownMenuItem(child: Text('English'),value: 'dsa',),
       ]
     ),
           ),

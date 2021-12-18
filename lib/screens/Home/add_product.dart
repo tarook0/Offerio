@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/RadiolistCat.dart';
 import '../../constant.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -147,7 +148,7 @@ class _ProductState extends State<Product> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'what is your product?',
+                    hintText: 'Email or Phone Number',
                     fillColor: charcoal.withOpacity(0.2),
                     filled: true,
                     border: OutlineInputBorder(
@@ -161,7 +162,25 @@ class _ProductState extends State<Product> {
                   ),
                 ),
               ),
-              Text('add product image'),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: charcoal,
+              ),
+              Text(
+                'Product type',
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:RadioListCat(),),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: charcoal,
+              ),
+              Text('Add product image'),
               Row(
                 children: [
                   Padding(
@@ -218,7 +237,7 @@ class _ProductState extends State<Product> {
                         borderRadius: BorderRadius.circular(50.0),
                       )),
                   child: Text(
-                    'Add',
+                    'Add product',
                     style: TextStyle(
                       color: charcoal,
                       fontSize: 17.5,
