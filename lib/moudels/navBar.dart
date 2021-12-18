@@ -24,12 +24,12 @@ class _navBarState extends State<navBar> {
     Home(),
     Favorite(),
     Profile(),
-
     Product(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = homeScreen();
 String  selectedCurrency = 'english' ;
+ bool _buttonappear=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,17 +37,22 @@ String  selectedCurrency = 'english' ;
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: persian,
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(
-            () {
-              currentScreen = Product();
-              currentTab = 4;
-            },
-          );
-        },
+      floatingActionButton: Visibility(
+        visible:_buttonappear ,
+        child: FloatingActionButton(
+          backgroundColor: persian,
+          tooltip: 'add a product',
+          child: Icon(Icons.add),
+          onPressed: () {
+            setState(
+              () {
+                currentScreen = Product();
+                currentTab = 4;
+                _buttonappear=false;
+              },
+            );
+          },
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -67,6 +72,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = homeScreen();
                         currentTab = 0;
+                        _buttonappear=true;
                       });
                     },
                     child: Column(
@@ -88,6 +94,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = Favorite();
                         currentTab = 1;
+                        _buttonappear=true;
                       });
                     },
                     child: Column(
@@ -115,6 +122,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = Profile();
                         currentTab = 3;
+                        _buttonappear=true;
                       });
                     },
                     child: Column(
@@ -136,6 +144,7 @@ String  selectedCurrency = 'english' ;
                onButtonpressed();
                setState(() {
                  currentTab = 2;
+                 
                });
              },
              child: Column(

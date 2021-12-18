@@ -7,8 +7,10 @@ final Color persian = Color(0xff2A9D8F);
 final Color crayoalla = Color(0xffE9C46A);
 final Color sandybrown = Color(0xffF4A261);
 final Color sienna = Color(0xffE76F51);
-const double kPadding = 8.0;
 final Color white = Colors.white;
+
+const double kPadding = 8.0;
+
 final TextStyle kTitleStyle = TextStyle(
   fontFamily: 'Pacifico',
   fontSize: 15,
