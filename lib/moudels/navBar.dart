@@ -3,6 +3,7 @@
 // ignore_for_file: file_names, prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/otherlist.dart';
 import 'package:my_app/screens/Home/add_product.dart';
 import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
@@ -10,7 +11,7 @@ import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/screens/Home/profile.dart';
 
 import '../constant.dart';
-
+int currentTab = 0;
 class navBar extends StatefulWidget {
   const navBar({Key ? key}) : super(key: key);
 
@@ -19,7 +20,7 @@ class navBar extends StatefulWidget {
 }
 
 class _navBarState extends State<navBar> {
-  int currentTab = 0;
+
   final List<Widget> screens = [
     Home(),
     Favorite(),
@@ -138,29 +139,7 @@ String  selectedCurrency = 'english' ;
                       ],
                     ),
                   ),
-          MaterialButton(
-             minWidth: 40,
-             onPressed: () {
-               onButtonpressed();
-               setState(() {
-                 currentTab = 2;
-                 
-               });
-             },
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-                 Icon(Icons.list,
-                     color: currentTab == 2 ? sandybrown : charcoal),
-                 Text(
-                   'Other',
-                   style: TextStyle(
-                       color: currentTab == 2 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
-                 )
-               ],
-             ),
-           ),
-
+                  Otherbutton(),
                 ],
               ),
             ],
@@ -169,73 +148,7 @@ String  selectedCurrency = 'english' ;
       ),
     );
   }
-  void _selecteditem( int n ){
-    if (n==1){
-      Navigator.pushNamed(context, 'fifth');
-    }
-  }
-  Column _buildbottomnavigationmenue (){
-    return Column(
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Settings'),
-          onTap:(){ _selecteditem(1);},
 
-        ),
-        ListTile(
-          leading: Icon(Icons.language),
-          title: Text('Language'),
-          trailing:  DropdownButton<String>(
-            value: null,
-              underline: Container(
-
-              ),
-              icon:  Icon(Icons.keyboard_arrow_down_outlined),
-              elevation: 16,
-              onChanged: (value){setState(() {
-
-              });},
-              items: [DropdownMenuItem(child: Text('arabic'),value: 'dds',),
-                DropdownMenuItem(child: Text('English'),value: 'dsa',),
-      ]
-    ),
-          ),
-
-        ListTile(
-          leading: Icon(Icons.people),
-          title: Text('About us'),
-        ),
-        ListTile(
-          leading: Icon(Icons.logout),
-          title: Text('Logout'),
-        )
-      ],
-    );
-  }
-  void onButtonpressed (){
-    showModalBottomSheet(context: context, builder: (context) {
-      return Container(
-        height: 240,
-        color : Color(0xff737373),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: 50,
-          ),
-          child: Container(
-            child: _buildbottomnavigationmenue(),
-            decoration: BoxDecoration(
-                color: white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-
-            ),
-          ),
-        ),
-      );
-    });
 
   }
-}
+
