@@ -36,6 +36,8 @@ class _ProductState extends State<Product> {
     });
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -252,4 +254,6 @@ class _ProductState extends State<Product> {
       ),
     );
   }
-}
+
+  }
+

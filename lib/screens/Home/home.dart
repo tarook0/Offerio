@@ -4,7 +4,7 @@ import '../../constant.dart';
 import '../../moudels/app_bar.dart';
 import 'add_product.dart';
 import 'favorite.dart';
-import 'profile.dart';
+import '../Profile/profile.dart';
 
 
 class Home extends StatefulWidget {

@@ -8,7 +8,7 @@ import 'package:my_app/screens/Home/add_product.dart';
 import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
-import 'package:my_app/screens/Home/profile.dart';
+import 'package:my_app/screens/Profile/profile.dart';
 
 import '../constant.dart';
 int currentTab = 0;
