@@ -142,8 +142,8 @@ class _LoginState extends State<Login> {
                               },
                               child: Icon(
                                 _obscureText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
                                 color: Colors.black38,
                               ),
                             ),

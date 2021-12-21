@@ -57,6 +57,12 @@ class _ProductState extends State<Product> {
                   style: TextStyle(fontSize: 23, fontFamily: 'EBGaramond'),
                 ),
               ),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: sandybrown,
+              ),
               Text(
                 'Product name',
               ),
@@ -168,6 +174,12 @@ class _ProductState extends State<Product> {
                 indent:10,
                 endIndent: 10,
                 thickness: 1.5,
+                color: sandybrown,
+              ),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
                 color: charcoal,
               ),
               Text(
@@ -181,6 +193,12 @@ class _ProductState extends State<Product> {
                 endIndent: 10,
                 thickness: 1.5,
                 color: charcoal,
+              ),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: sandybrown,
               ),
               Text('Add product image'),
               Row(
@@ -228,6 +246,12 @@ class _ProductState extends State<Product> {
                       ? Text('no image was selected')
                       : Image.file(_image!),
                 ),
+              ),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: sandybrown,
               ),
               Center(
                 child: OutlinedButton(
