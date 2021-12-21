@@ -30,6 +30,7 @@ dependencies:
   colour: ^1.0.5
   http: ^0.13.4
   image_picker:
+  flutter_datetime_picker: ^1.5.1
 
 
 dev_dependencies:

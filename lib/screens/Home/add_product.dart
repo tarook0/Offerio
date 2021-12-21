@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_app/moudels/RadiolistCat.dart';
 import '../../constant.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:my_app/moudels/date_picker.dart';
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
@@ -49,7 +51,7 @@ class _ProductState extends State<Product> {
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
-            children: <Widget>[
+            children: [
               Padding(
                 padding: const EdgeInsets.all(18),
                 child: Text(
@@ -128,28 +130,6 @@ class _ProductState extends State<Product> {
                 ),
               ),
               Text(
-                'Expire date',
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  keyboardType: TextInputType.datetime,
-                  decoration: InputDecoration(
-                    hintText: 'what is your product expire date?',
-                    fillColor: charcoal.withOpacity(0.2),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 0.0,
-                      horizontal: 10,
-                    ),
-                  ),
-                ),
-              ),
-              Text(
                 'Contact',
               ),
               Padding(
@@ -183,11 +163,10 @@ class _ProductState extends State<Product> {
                 color: charcoal,
               ),
               Text(
-                'Product type',
+                'Expire date',
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:RadioListCat(),),
+
+              DateExpirePicker(),
               Divider(
                 indent:10,
                 endIndent: 10,
@@ -199,6 +178,24 @@ class _ProductState extends State<Product> {
                 endIndent: 10,
                 thickness: 1.5,
                 color: sandybrown,
+              ),
+              Text(
+                'Product type',
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:RadioListCat(),),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: sandybrown,
+              ),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
+                color: charcoal,
               ),
               Text('Add product image'),
               Row(
@@ -255,7 +252,7 @@ class _ProductState extends State<Product> {
               ),
               Center(
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {print(DateTime.now());},
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(100, 35),
                       side: BorderSide(width: 1.5, color: charcoal),
