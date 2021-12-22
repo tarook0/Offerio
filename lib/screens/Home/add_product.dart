@@ -5,6 +5,7 @@ import '../../constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:my_app/moudels/date_picker.dart';
+import 'package:my_app/moudels/product_prices.dart';
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
@@ -65,6 +66,8 @@ class _ProductState extends State<Product> {
                 thickness: 1.5,
                 color: sandybrown,
               ),
+
+ //PRODUCT INFORMATION
               Text(
                 'Product name',
               ),
@@ -108,27 +111,7 @@ class _ProductState extends State<Product> {
                   ),
                 ),
               ),
-              Text(
-                'Product price',
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'how much is your product?',
-                    fillColor: charcoal.withOpacity(0.2),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 0.0,
-                      horizontal: 10,
-                    ),
-                  ),
-                ),
-              ),
+
               Text(
                 'Contact',
               ),
@@ -154,6 +137,20 @@ class _ProductState extends State<Product> {
                 indent:10,
                 endIndent: 10,
                 thickness: 1.5,
+                color: charcoal,
+              ),
+              Text(
+                'Product price',
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text('please fill the table below'),
+              ProductPrice(),
+              Divider(
+                indent:10,
+                endIndent: 10,
+                thickness: 1.5,
                 color: sandybrown,
               ),
               Divider(
@@ -167,6 +164,7 @@ class _ProductState extends State<Product> {
               ),
 
               DateExpirePicker(),
+
               Divider(
                 indent:10,
                 endIndent: 10,
