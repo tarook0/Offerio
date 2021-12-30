@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:my_app/screens/Home/add_product.dart';
 
+
+late int maxY ;
+late int maxM ;
+late int maxD ;
 class DateExpirePicker extends StatefulWidget {
   const DateExpirePicker({Key? key}) : super(key: key);
 
@@ -12,7 +16,7 @@ class DateExpirePicker extends StatefulWidget {
 
 class _DateExpirePickerState extends State<DateExpirePicker> {
   DateTime  todaydate =DateTime.now();
-  //void today(){
+
     late int  d = todaydate.day +4 ;
     late int  m = todaydate.month;
     late int  y = todaydate.year;
@@ -34,6 +38,9 @@ class _DateExpirePickerState extends State<DateExpirePicker> {
 
     onDateTimeChanged: (date) => setState(() {
       this.todaydate =date;
+      maxD = date.day;
+      maxM = date.month;
+      maxY =date.year;
     }),
   );
 }

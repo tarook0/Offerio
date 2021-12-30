@@ -2,6 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
 
+
+TextEditingController Price1 = TextEditingController();
+TextEditingController Price2 = TextEditingController();
+TextEditingController Price3 = TextEditingController();
+TextEditingController Price4 = TextEditingController();
+
+TextEditingController timestamp1 = TextEditingController();
+TextEditingController timestamp2 = TextEditingController();
+TextEditingController timestamp3 = TextEditingController();
+
 class ProductPrice extends StatefulWidget {
   const ProductPrice({Key? key}) : super(key: key);
 
@@ -47,6 +57,7 @@ class _ProductPriceState extends State<ProductPrice> {
               ),),
             ),
             TextFormField(
+              controller: Price1,
               cursorColor: persian,
               decoration: InputDecoration(focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -71,6 +82,7 @@ class _ProductPriceState extends State<ProductPrice> {
                 ),),
               ),
               TextFormField(
+                controller: Price2,
                 cursorColor: persian,
                 decoration: InputDecoration(
                   focusedBorder: UnderlineInputBorder(
@@ -82,6 +94,7 @@ class _ProductPriceState extends State<ProductPrice> {
                 ),
               ),
               TextFormField(
+                controller: timestamp1,
                 cursorColor: persian,
                 decoration: InputDecoration(
                   hintText: 'e.g: 30',
@@ -109,6 +122,7 @@ class _ProductPriceState extends State<ProductPrice> {
                 ),),
               ),
               TextFormField(
+                controller: Price3,
                 cursorColor: persian,
                 decoration: InputDecoration(
                   focusedBorder: UnderlineInputBorder(
@@ -147,6 +161,7 @@ class _ProductPriceState extends State<ProductPrice> {
                 ),),
               ),
               TextFormField(
+                controller: Price4,
                 cursorColor: persian,
                 decoration: InputDecoration(
                   focusedBorder: UnderlineInputBorder(

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/RadiolistCat.dart';
+import 'package:my_app/screens/sign_log/SignUp/addproduct_upload';
 import '../../constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -40,7 +41,10 @@ class _ProductState extends State<Product> {
   }
 
 
-
+  TextEditingController _productnameTEC = TextEditingController();
+  TextEditingController _productdescriptionTEC = TextEditingController();
+  TextEditingController _productcontactTEC = TextEditingController();
+  TextEditingController _productamountTEC = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,8 +78,31 @@ class _ProductState extends State<Product> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: _productnameTEC,
                   decoration: InputDecoration(
                     hintText: 'what is your product?',
+                    fillColor: charcoal.withOpacity(0.2),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 0.0,
+                      horizontal: 10,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Product description',
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _productdescriptionTEC,
+                  decoration: InputDecoration(
+                    hintText: 'describe your product',
                     fillColor: charcoal.withOpacity(0.2),
                     filled: true,
                     border: OutlineInputBorder(
@@ -95,6 +122,7 @@ class _ProductState extends State<Product> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller:  _productcontactTEC,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: 'how many of the product is there?',
@@ -118,6 +146,7 @@ class _ProductState extends State<Product> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller:  _productamountTEC,
                   decoration: InputDecoration(
                     hintText: 'Email or Phone Number',
                     fillColor: charcoal.withOpacity(0.2),
@@ -250,7 +279,30 @@ class _ProductState extends State<Product> {
               ),
               Center(
                 child: OutlinedButton(
-                  onPressed: () {print(DateTime.now());},
+                  onPressed: () { setState(() {
+                    var Pname = _productnameTEC.text;
+                    var Pdescription = _productdescriptionTEC.text;
+                    var Pcontact = _productcontactTEC.text;
+                    var Pamount = _productamountTEC.text;
+
+                    var Pprice1 = Price1.text;
+                    var Pprice2 = Price1.text;
+                    var Pprice3 = Price1.text;
+                    var Pprice4 = Price1.text;
+
+                    var timestamp = timestamp1.text;
+                   // double maxd1 = maxD - double.tryParse(timestamp);
+                    String PExpiredate = "$maxD / $maxM / $maxY";
+                    String Ptimestamp3= "$maxD / $maxM / $maxY";
+                    postUserdata (name: Pname,desc:Pdescription,contact:Pcontact,amount: Pamount,
+                        image: _image!.path,
+                        date: PExpiredate,
+                        category: val,
+                      firstprice:Pprice1 ,secondprice: Pprice2,thirdprice: Pprice3,forthprice: Pprice4,
+                    );
+                  });
+
+                  },
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(100, 35),
                       side: BorderSide(width: 1.5, color: charcoal),
