@@ -4,7 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/constant.dart';
+import 'package:my_app/screens/sign_log/SignUp/signup_api.dart';
+import 'package:http/http.dart' as http;
 
+TextEditingController nameController=TextEditingController();
+TextEditingController emailController=TextEditingController();
+TextEditingController passwordController=TextEditingController();
+TextEditingController confirmPasswordController=TextEditingController();
 class Signup extends StatefulWidget {
   @override
   _SignupState createState() => _SignupState();
@@ -59,6 +65,7 @@ class _SignupState extends State<Signup> {
                         child: TextFormField(
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.emailAddress,
+                          controller:emailController,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
                             hintText: 'Email',
@@ -98,6 +105,7 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           cursorColor: Colors.grey,
+                          controller:nameController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
@@ -137,6 +145,7 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           obscureText: true,
+                          controller:passwordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
@@ -178,16 +187,16 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           cursorColor: Colors.grey,
-                          keyboardType: TextInputType.number,
+                          controller:confirmPasswordController,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            hintText: 'PhoneNumber',
+                            hintText: 'confirm password',
                             hintStyle: TextStyle(
                               fontFamily: 'EBGaramond',
                               fontSize: 16.5,
                             ),
                             prefixIcon: Icon(
-                              Icons.phone,
+                              Icons.lock,
                               color: charcoal,
                             ),
                             focusedBorder: UnderlineInputBorder(
@@ -198,8 +207,8 @@ class _SignupState extends State<Signup> {
                           ),
                           validator: (String value) {
                             if (value.isNotEmpty &&
-                                (value.length < 10 || value.length > 10)) {
-                              return 'not correct';
+                                (value.length < 6 || value.length > 10)) {
+                              return 'please enter 6 to 10 characters';
                             } else {
                               return null;
                             }
@@ -217,8 +226,16 @@ class _SignupState extends State<Signup> {
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                               return;
-                            } else
-                              Navigator.pushNamed(context, 'fourth');
+                            } else { setState(() {
+                              postdata(name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  password_confirmation: confirmPasswordController
+                                      .text);
+                            });
+
+                            }
+                            //Navigator.pushNamed(context, 'fourth');
                           },
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),
@@ -247,33 +264,3 @@ class _SignupState extends State<Signup> {
   }
 }
 
-class SignupTextfields extends StatelessWidget {
-  SignupTextfields({@required this.x, @required this.y});
-  bool x;
-  TextInputType y;
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: x,
-      cursorColor: Colors.grey,
-      keyboardType: y,
-      decoration: InputDecoration(
-        border: UnderlineInputBorder(),
-        hintText: 'Email',
-        hintStyle: TextStyle(
-          fontFamily: 'EBGaramond',
-          fontSize: 16.5,
-        ),
-        prefixIcon: Icon(
-          Icons.email,
-          color: charcoal,
-        ),
-        focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-          color: charcoal,
-          width: 2,
-        )),
-      ),
-    );
-  }
-}

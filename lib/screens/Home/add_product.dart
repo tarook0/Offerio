@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/RadiolistCat.dart';
-import 'package:my_app/screens/sign_log/SignUp/addproduct_upload';
+import 'package:my_app/screens/Home/add_product_upload.dart';
 import '../../constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';

@@ -10,7 +10,7 @@ void postUserdata ({ required String name, required String desc, required String
   required String date,
   required String category,
   required String firstprice,required String secondprice,required String thirdprice,required String forthprice,
-  required String expiredate
+
 })
 async{
 
