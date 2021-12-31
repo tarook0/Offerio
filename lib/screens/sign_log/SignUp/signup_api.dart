@@ -1,11 +1,14 @@
 import 'dart:convert';
 import'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 
-void postdata ({required String name ,required String email ,
+var x;
+
+
+Future postdata ({required String name ,required String email ,
   required String password ,
   required String password_confirmation}) async {
-
 
   final response = await http.post(
     //if running on real device keep it like this "http://192.168.1.107:8000/api/signup"
@@ -27,5 +30,6 @@ void postdata ({required String name ,required String email ,
 
 
   );
+  x = response.statusCode;
   print(response.body);
 }

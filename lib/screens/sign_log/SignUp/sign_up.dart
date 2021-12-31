@@ -7,6 +7,8 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/screens/sign_log/SignUp/signup_api.dart';
 import 'package:http/http.dart' as http;
 
+
+
 TextEditingController nameController=TextEditingController();
 TextEditingController emailController=TextEditingController();
 TextEditingController passwordController=TextEditingController();
@@ -144,7 +146,7 @@ class _SignupState extends State<Signup> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
-                          obscureText: true,
+                          //obscureText: true,
                           controller:passwordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
@@ -186,6 +188,7 @@ class _SignupState extends State<Signup> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
+                          keyboardType: TextInputType.visiblePassword,
                           cursorColor: Colors.grey,
                           controller:confirmPasswordController,
                           decoration: InputDecoration(
@@ -226,17 +229,15 @@ class _SignupState extends State<Signup> {
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                               return;
-                            } else { setState(() {
-                              postdata(name: nameController.text,
+                            } else {
+                               postdata(name: nameController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
                                   password_confirmation: confirmPasswordController
                                       .text);
-                            });
-
+                               if (x==201){Navigator.pushNamed(context, 'forth');
                             }
-                            //Navigator.pushNamed(context, 'fourth');
-                          },
+                               };},
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),
                               side: BorderSide(width: 1.5, color: charcoal),
