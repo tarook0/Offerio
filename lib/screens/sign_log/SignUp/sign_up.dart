@@ -7,10 +7,11 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/screens/sign_log/SignUp/signup_api.dart';
 import 'package:http/http.dart' as http;
 
-TextEditingController nameController=TextEditingController();
-TextEditingController emailController=TextEditingController();
-TextEditingController passwordController=TextEditingController();
-TextEditingController confirmPasswordController=TextEditingController();
+TextEditingController nameController = TextEditingController();
+TextEditingController emailController = TextEditingController();
+TextEditingController passwordController = TextEditingController();
+TextEditingController confirmPasswordController = TextEditingController();
+
 class Signup extends StatefulWidget {
   @override
   _SignupState createState() => _SignupState();
@@ -65,7 +66,7 @@ class _SignupState extends State<Signup> {
                         child: TextFormField(
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.emailAddress,
-                          controller:emailController,
+                          controller: emailController,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
                             hintText: 'Email',
@@ -105,7 +106,7 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           cursorColor: Colors.grey,
-                          controller:nameController,
+                          controller: nameController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
@@ -145,7 +146,7 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           obscureText: true,
-                          controller:passwordController,
+                          controller: passwordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
@@ -187,7 +188,7 @@ class _SignupState extends State<Signup> {
                         ),
                         child: TextFormField(
                           cursorColor: Colors.grey,
-                          controller:confirmPasswordController,
+                          controller: confirmPasswordController,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
                             hintText: 'confirm password',
@@ -226,16 +227,16 @@ class _SignupState extends State<Signup> {
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                               return;
-                            } else { setState(() {
-                              postdata(name: nameController.text,
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                  password_confirmation: confirmPasswordController
-                                      .text);
-                            });
-
+                            } else {
+                              setState(() {
+                                postdata(
+                                    name: nameController.text,
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    password_confirmation:
+                                        confirmPasswordController.text);
+                              });
                             }
-                            //Navigator.pushNamed(context, 'fourth');
                           },
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),
@@ -263,4 +264,3 @@ class _SignupState extends State<Signup> {
     );
   }
 }
-
