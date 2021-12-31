@@ -2,7 +2,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'screens/Home/home.dart';
-import 'screens/sign_log/log_in_screen.dart';
+import 'screens/sign_log/Log_in/log_in_screen.dart';
 import 'screens/sign_log/SignUp/sign_up.dart';
 import 'screens/sign_log/welcome_screen.dart';
 import 'package:my_app/screens/settings.dart';
