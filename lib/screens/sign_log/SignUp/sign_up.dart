@@ -145,7 +145,7 @@ class _SignupState extends State<Signup> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
-                          obscureText: true,
+                          //obscureText: true,
                           controller: passwordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
@@ -187,6 +187,7 @@ class _SignupState extends State<Signup> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
+                          keyboardType: TextInputType.visiblePassword,
                           cursorColor: Colors.grey,
                           controller: confirmPasswordController,
                           decoration: InputDecoration(
@@ -228,15 +229,17 @@ class _SignupState extends State<Signup> {
                             if (!_formkey.currentState.validate()) {
                               return;
                             } else {
-                              setState(() {
-                                postdata(
-                                    name: nameController.text,
-                                    email: emailController.text,
-                                    password: passwordController.text,
-                                    password_confirmation:
-                                        confirmPasswordController.text);
-                              });
+                              postdata(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  password_confirmation:
+                                      confirmPasswordController.text);
+                              if (x == 201) {
+                                Navigator.pushNamed(context, 'forth');
+                              }
                             }
+                            ;
                           },
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),
