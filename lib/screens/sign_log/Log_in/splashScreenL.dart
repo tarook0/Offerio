@@ -80,11 +80,12 @@ class _splashScreenLState extends State<splashScreenL> {
                 //   height: 300.0,
                 // ),
                 Text(
-                  "A whole offerio store\n at your fingertips",
+                  "A whole Offerio store..\n at your fingertips",
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    //fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                    fontFamily: 'EBGaramond',
                   ),
                 ),
               ],
