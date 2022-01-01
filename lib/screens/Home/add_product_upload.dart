@@ -10,13 +10,19 @@ void postUserdata ({ required String name, required String desc, required String
   required String date,
   required String category,
   required String firstprice,required String secondprice,required String thirdprice,required String forthprice,
+  required String date3 ,  required String date2 , required String date1 ,
 
 })
 async{
 
 
-  final request = await http.MultipartRequest("post",Uri.parse("http://127.0.0.1:8000/api/products"));
+  final request = await http.MultipartRequest("post",Uri.parse("http://192.168.1.107:8000/api/products"),);
   request.files.add(await http.MultipartFile.fromPath('image', image));
+
+  request.headers.addAll({"Content-Type": "application/json",
+    "Accept": "application/json",
+    'Charset' : 'utf-8',});
+
 
   request.fields['name']= name;
   request.fields['contact']= contact;
@@ -28,6 +34,12 @@ async{
   request.fields['price-4']= forthprice;
   request.fields['category_id']= category;
   request.fields['timestamp-4']= date;
+  request.fields['timestamp-3']= date3;
+  request.fields['timestamp-2']= date2;
+  request.fields['timestamp-1']= date1;
+
+
   var res = await request.send();
+print(res.statusCode);
 
 }
