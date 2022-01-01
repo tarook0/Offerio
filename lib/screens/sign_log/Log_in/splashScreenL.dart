@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
@@ -88,7 +89,7 @@ class _splashScreenLState extends State<splashScreenL> {
                 ),
               ],
             ),
-            const CircularProgressIndicator()
+            SpinKitThreeBounce(color:  sandybrown,size: 50,),
           ],
         ),
       ),

@@ -8,9 +8,18 @@ TextEditingController Price2 = TextEditingController();
 TextEditingController Price3 = TextEditingController();
 TextEditingController Price4 = TextEditingController();
 
-TextEditingController timestamp1 = TextEditingController();
-TextEditingController timestamp2 = TextEditingController();
-TextEditingController timestamp3 = TextEditingController();
+TextEditingController disday1 = TextEditingController();
+TextEditingController dismonth1 = TextEditingController();
+TextEditingController disyear1 = TextEditingController();
+
+TextEditingController disday2 = TextEditingController();
+TextEditingController dismonth2 = TextEditingController();
+TextEditingController disyear2 = TextEditingController();
+
+TextEditingController disday3 = TextEditingController();
+TextEditingController dismonth3 = TextEditingController();
+TextEditingController disyear3 = TextEditingController();
+
 
 class ProductPrice extends StatefulWidget {
   const ProductPrice({Key? key}) : super(key: key);
@@ -25,7 +34,7 @@ class _ProductPriceState extends State<ProductPrice> {
     return Table(
       border: TableBorder.all(width: 0.2,borderRadius: BorderRadius.circular(20)),
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      columnWidths: {2:FractionColumnWidth(.2),3:FractionColumnWidth(.3)},
+      //columnWidths: {2:FractionColumnWidth(.2),3:FractionColumnWidth(.3)},
       children: [
         //FIRST row of the table
         TableRow(
@@ -39,11 +48,23 @@ class _ProductPriceState extends State<ProductPrice> {
               ),
               Padding(
                 padding: const EdgeInsets.all(5),
-                child: Text('When ',style: TextStyle(
+                child: Text('When\n(day) ',style: TextStyle(
                     fontWeight: FontWeight.bold
                 ),),
               ),
-              SizedBox(),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Text('When \n (month) ',style: TextStyle(
+                    fontWeight: FontWeight.bold
+                ),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Text('When\n(year) ',style: TextStyle(
+                    fontWeight: FontWeight.bold
+                ),),
+              ),
+
             ]
         ),
 
@@ -68,7 +89,9 @@ class _ProductPriceState extends State<ProductPrice> {
               ),
             ),
             Text('now'),
-            SizedBox(),
+            Text('now'),
+            Text('now'),
+
           ]
         ),
 
@@ -93,23 +116,11 @@ class _ProductPriceState extends State<ProductPrice> {
                   ),
                 ),
               ),
-              TextFormField(
-                controller: timestamp1,
-                cursorColor: persian,
-                decoration: InputDecoration(
-                  hintText: 'e.g: 30',
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: persian,
-                      width: 2,
-                    ),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              Text('Days or less from the expiredate',
-              ),
-            ]
+             TextFormField(controller: disday1, keyboardType: TextInputType.number,),
+              TextFormField(controller: dismonth1, keyboardType: TextInputType.number,),
+              TextFormField(controller: disyear1, keyboardType: TextInputType.number,),
+
+]
         ),
 
         //FORTH row of the table
@@ -133,23 +144,14 @@ class _ProductPriceState extends State<ProductPrice> {
                   ),
                 ),
               ),
-              TextFormField(
-                cursorColor: persian,
-                decoration: InputDecoration(
-                    hintText: '15',
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: persian,
-                      width: 2,
-                    ),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              Text('Days or less from the expiredate'
-              ),
+              TextFormField(controller: disday2, keyboardType: TextInputType.number,),
+              TextFormField(controller: dismonth2, keyboardType: TextInputType.number,),
+              TextFormField(controller: disyear2, keyboardType: TextInputType.number,),
+           //   Text('Days or less from the expiredate'),
             ]
         ),
+
+
 
         //FIFTH row of the table
         TableRow(
@@ -172,10 +174,22 @@ class _ProductPriceState extends State<ProductPrice> {
                   ),
                 ),
               ),
-              TextFormField(
+              TextFormField(controller: disday3, keyboardType: TextInputType.number,),
+              TextFormField(controller: dismonth3, keyboardType: TextInputType.number,),
+              TextFormField(controller: disyear3, keyboardType: TextInputType.number,),
+             // Text('Days or less from the expiredate'),
+            ]
+        ),
+
+      ],
+    );
+  }
+}
+/* TextFormField(
+                controller: timestamp1,
                 cursorColor: persian,
                 decoration: InputDecoration(
-                    hintText: '10',
+                  hintText: 'e.g: 30',
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: persian,
@@ -184,13 +198,5 @@ class _ProductPriceState extends State<ProductPrice> {
                   ),
                 ),
                 keyboardType: TextInputType.number,
-              ),
-              Text('Days or less from the expiredate'
-              ),
-            ]
-        ),
+              ),*/
 
-      ],
-    );
-  }
-}

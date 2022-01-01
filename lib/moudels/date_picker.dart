@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:my_app/screens/Home/add_product.dart';
+import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 
 
 late int maxY ;
