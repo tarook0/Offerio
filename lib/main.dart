@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 // @dart=2.9
 import 'package:flutter/material.dart';
-import 'package:my_app/screens/sign_log/splash_screen.dart';
+import 'package:my_app/screens/sign_log/Log_in/splashScreenL.dart';
+import 'package:my_app/screens/sign_log/SignUp/splash_screen.dart';
+import 'package:my_app/screens/loading_screen.dart';
 import 'screens/Home/home.dart';
 import 'screens/sign_log/Log_in/log_in_screen.dart';
 import 'screens/sign_log/SignUp/sign_up.dart';
@@ -25,9 +27,10 @@ class Offerio extends StatelessWidget {
         'one': (context) => WelcomeScreen(),
         'second': (context) => Login(),
         'third': (context) => Signup(),
-        'blabla': (context) => splashScreen(),
         'fourth': (context) => Home(),
         'fifth': (context) => Settings(),
+        'sixth': (context) => splashScreen(),
+        'seven': (context) => splashScreenL(),
       },
     );
   }

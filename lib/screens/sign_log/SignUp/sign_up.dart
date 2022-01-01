@@ -226,13 +226,11 @@ class _SignupState extends State<Signup> {
                         ),
                         child: OutlinedButton(
                           onPressed: () {
-                            setState(() {
-                              if (!_formkey.currentState.validate()) {
-                                return;
-                              } else {
-                                Navigator.pushNamed(context, 'blabla');
-                              }
-                            });
+                            if (!_formkey.currentState.validate()) {
+                              return;
+                            } else {
+                              Navigator.pushNamed(context, 'sixth');
+                            }
                           },
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),

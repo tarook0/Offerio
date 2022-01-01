@@ -6,8 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
 
-TextEditingController emailController = TextEditingController();
-TextEditingController passwordController = TextEditingController();
+TextEditingController EmailController = TextEditingController();
+TextEditingController PasswordController = TextEditingController();
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -89,7 +89,7 @@ class _LoginState extends State<Login> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
-                          controller: emailController,
+                          controller: EmailController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
@@ -131,7 +131,7 @@ class _LoginState extends State<Login> {
                         ),
                         child: TextFormField(
                           obscureText: _obscureText,
-                          controller: passwordController,
+                          controller: PasswordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
@@ -180,13 +180,12 @@ class _LoginState extends State<Login> {
                             if (!_formkey1.currentState.validate()) {
                               return;
                             } else {
-                              setState(() {
-                                // ignore: unrelated_type_equality_checks
-                                postdata(
-                                    email: emailController.text,
-                                    password: passwordController.text);
-                                Navigator.pushNamed(context, 'blabla');
-                              });
+                              Navigator.pushNamed(context, 'seven');
+                              // // ignore: unrelated_type_equality_checks
+                              // logInPostdata(
+                              //     email: EmailController.text,
+                              //     password: PasswordController.text);
+                              // Navigator.pushNamed(context, 'blabla');
                             }
                           },
                           style: OutlinedButton.styleFrom(

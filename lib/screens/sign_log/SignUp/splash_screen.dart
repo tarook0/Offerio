@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
+import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
+import 'package:my_app/screens/sign_log/Log_in/log_in_screen.dart';
 
-import 'SignUp/sign_up.dart';
-import 'SignUp/signup_api.dart';
+import 'sign_up.dart';
+import 'signup_api.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({Key? key}) : super(key: key);
@@ -18,26 +20,45 @@ class _splashScreenState extends State<splashScreen> {
   @override
   void initState() {
     super.initState();
+
     postdata(
         name: nameController.text,
         email: emailController.text,
         password: passwordController.text,
         password_confirmation: confirmPasswordController.text);
-
-    Timer(Duration(seconds: 10), () {
+    // logInPostdata(
+    //     email: EmailController.text, password: PasswordController.text);
+    Timer(const Duration(seconds: 7), () {
       if (x == 201) {
-        () => Navigator.pushNamed(context, 'fourth');
-        // () => Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => 'fourth',
-        //   ),
-        // ),
-      } else {
-        print("erorr");
+        Navigator.pushNamed(context, 'fourth');
+      } else if (x != 201) {
+        Navigator.pushNamed(context, 'third');
       }
     });
   }
+
+  // void initState() {
+  //   super.initState();
+  //   postdata(
+  //       name: nameController.text,
+  //       email: emailController.text,
+  //       password: passwordController.text,
+  //       password_confirmation: confirmPasswordController.text);
+
+  //   Timer(Duration(seconds: 10), () {
+  //     if (x == 201) {
+  //       () => Navigator.pushNamed(context, 'fourth');
+  //       // () => Navigator.pushReplacement(
+  //       //   context,
+  //       //   MaterialPageRoute(
+  //       //     builder: (context) => 'fourth',
+  //       //   ),
+  //       // ),
+  //     } else {
+  //       print("erorr");
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

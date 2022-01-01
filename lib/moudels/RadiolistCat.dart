@@ -1,6 +1,10 @@
+// ignore: file_names
+// ignore_for_file: prefer_typing_uninitialized_variables, file_names
+
 import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
-late var val;
+
+late var val = null;
 
 class RadioListCat extends StatefulWidget {
   const RadioListCat({Key? key}) : super(key: key);
@@ -22,21 +26,21 @@ class _RadioListCatState extends State<RadioListCat> {
                   contentPadding: EdgeInsets.all(0.5),
                   activeColor: persian,
                   value: 1,
-                  groupValue:val,
+                  groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
-                  title: Text('veggies'),
+                  title: const Text('veggies'),
                   contentPadding: EdgeInsets.all(0.5),
                   activeColor: persian,
                   value: 2,
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
@@ -47,7 +51,7 @@ class _RadioListCatState extends State<RadioListCat> {
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
@@ -58,7 +62,7 @@ class _RadioListCatState extends State<RadioListCat> {
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
             ],
@@ -72,10 +76,10 @@ class _RadioListCatState extends State<RadioListCat> {
                   contentPadding: EdgeInsets.all(0.5),
                   activeColor: persian,
                   value: 5,
-                  groupValue:val,
+                  groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
@@ -86,7 +90,7 @@ class _RadioListCatState extends State<RadioListCat> {
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
@@ -97,7 +101,7 @@ class _RadioListCatState extends State<RadioListCat> {
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
               RadioListTile(
@@ -108,7 +112,7 @@ class _RadioListCatState extends State<RadioListCat> {
                   groupValue: val,
                   onChanged: (newvalue) {
                     setState(() {
-                      val=newvalue;
+                      val = newvalue;
                     });
                   }),
             ],
@@ -118,4 +122,3 @@ class _RadioListCatState extends State<RadioListCat> {
     );
   }
 }
-
