@@ -66,7 +66,7 @@ class _ProfileState extends State<Profile> {
                       child: CircleAvatar(
                         radius: 60,
                         backgroundImage: _imageprofile == null
-                            ? AssetImage('images/profilepic.png')
+                            ? AssetImage('images/background1.png')
                             : FileImage(_imageprofile!) as ImageProvider,
                       ),
                     ),
