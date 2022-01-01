@@ -226,20 +226,13 @@ class _SignupState extends State<Signup> {
                         ),
                         child: OutlinedButton(
                           onPressed: () {
-                            if (!_formkey.currentState.validate()) {
-                              return;
-                            } else {
-                              postdata(
-                                  name: nameController.text,
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                  password_confirmation:
-                                      confirmPasswordController.text);
-                              if (x == 201) {
-                                Navigator.pushNamed(context, 'forth');
+                            setState(() {
+                              if (!_formkey.currentState.validate()) {
+                                return;
+                              } else {
+                                Navigator.pushNamed(context, 'blabla');
                               }
-                            }
-                            ;
+                            });
                           },
                           style: OutlinedButton.styleFrom(
                               minimumSize: Size(100, 35),

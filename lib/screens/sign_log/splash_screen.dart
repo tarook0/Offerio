@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
 
+import 'SignUp/sign_up.dart';
+import 'SignUp/signup_api.dart';
+
 class splashScreen extends StatefulWidget {
   const splashScreen({Key? key}) : super(key: key);
 
@@ -15,6 +18,11 @@ class _splashScreenState extends State<splashScreen> {
   @override
   void initState() {
     super.initState();
+    postdata(
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        password_confirmation: confirmPasswordController.text);
 
     Timer(Duration(seconds: 10), () {
       if (x == 201) {
