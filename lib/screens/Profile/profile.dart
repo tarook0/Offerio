@@ -14,14 +14,15 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
+
 //functions to pick image from gallery or camera and set it as profile image
 class _ProfileState extends State<Profile> {
   File? _imageprofile;
   final pickerprofile = ImagePicker();
 
   Future profileimagefromgallery() async {
-    final pickedimageprofile = await pickerprofile.pickImage(
-        source: ImageSource.gallery);
+    final pickedimageprofile =
+        await pickerprofile.pickImage(source: ImageSource.gallery);
     setState(() {
       if (pickedimageprofile != null) {
         _imageprofile = File(pickedimageprofile.path);
@@ -33,8 +34,8 @@ class _ProfileState extends State<Profile> {
   }
 
   Future profileimagefromCamera() async {
-    final pickedimagecamera = await pickerprofile.pickImage(
-        source: ImageSource.camera);
+    final pickedimagecamera =
+        await pickerprofile.pickImage(source: ImageSource.camera);
     setState(() {
       if (pickedimagecamera != null) {
         _imageprofile = File(pickedimagecamera.path);
@@ -54,7 +55,6 @@ class _ProfileState extends State<Profile> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
             child: Column(
-
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -111,9 +111,11 @@ class _ProfileState extends State<Profile> {
                           fontSize: 16,
                         ),
                       ),
-                      FloatingActionButton(onPressed: (){},
+                      FloatingActionButton(
+                        onPressed: () {},
                         child: Icon(Icons.arrow_forward),
-                        backgroundColor: sandybrown,)
+                        backgroundColor: sandybrown,
+                      )
                     ],
                   ),
                 ),
@@ -124,27 +126,29 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+
 //functions to build the bottom slide sheet that has options for image
   void profileimagepressed() {
-    showModalBottomSheet(context: context, builder: (context) {
-      return Container(
-        height: 200,
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              title: Text('Camera'),
-              trailing: Icon(Icons.camera_alt_outlined),
-              onTap: profileimagefromCamera,
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: 200,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: Text('Camera'),
+                  trailing: Icon(Icons.camera_alt_outlined),
+                  onTap: profileimagefromCamera,
+                ),
+                ListTile(
+                  title: Text('Gallery'),
+                  trailing: Icon(Icons.photo),
+                  onTap: profileimagefromgallery,
+                ),
+              ],
             ),
-            ListTile(
-              title: Text('Gallery'),
-              trailing: Icon(Icons.photo),
-              onTap: profileimagefromgallery,
-            ),
-          ],
-        ),
-      );
-    });
+          );
+        });
   }
-
 }

@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/constant.dart';
+import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
+
+TextEditingController EmailController = TextEditingController();
+TextEditingController PasswordController = TextEditingController();
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -85,11 +89,12 @@ class _LoginState extends State<Login> {
                           horizontal: 10,
                         ),
                         child: TextFormField(
+                          controller: EmailController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            hintText: 'UserName',
+                            hintText: 'email',
                             hintStyle: TextStyle(
                               fontFamily: 'EBGaramond',
                               fontSize: 16.5,
@@ -104,12 +109,13 @@ class _LoginState extends State<Login> {
                               width: 2,
                             )),
                           ),
-                          validator: (value) {
+                          validator: (String value) {
                             if (value.isEmpty) {
-                              return 'please enter your username';
-                            } else if (value.isNotEmpty &&
-                                (value.length < 4 || value.length > 8)) {
-                              return 'username should be 4 to 8 letters';
+                              return 'please enter email';
+                            } else if (!RegExp(
+                                    "^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})")
+                                .hasMatch(value)) {
+                              return 'email is not correct';
                             } else {
                               return null;
                             }
@@ -125,6 +131,7 @@ class _LoginState extends State<Login> {
                         ),
                         child: TextFormField(
                           obscureText: _obscureText,
+                          controller: PasswordController,
                           cursorColor: Colors.grey,
                           keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
@@ -173,7 +180,12 @@ class _LoginState extends State<Login> {
                             if (!_formkey1.currentState.validate()) {
                               return;
                             } else {
-                              Navigator.pushNamed(context, 'fourth');
+                              Navigator.pushNamed(context, 'seven');
+                              // // ignore: unrelated_type_equality_checks
+                              // logInPostdata(
+                              //     email: EmailController.text,
+                              //     password: PasswordController.text);
+                              // Navigator.pushNamed(context, 'blabla');
                             }
                           },
                           style: OutlinedButton.styleFrom(

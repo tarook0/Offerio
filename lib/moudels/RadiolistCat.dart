@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
- var val=null;
+late var val;
 
 class RadioListCat extends StatefulWidget {
   const RadioListCat({Key? key}) : super(key: key);
