@@ -230,12 +230,8 @@ class _SignupState extends State<Signup> {
                             if (!_formkey.currentState.validate()) {
                               return;
                             } else {
-                               postdata(name: nameController.text,
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                  password_confirmation: confirmPasswordController
-                                      .text);
-                               if (x==201){Navigator.pushNamed(context, 'forth');
+                              {Navigator.pushNamed(context, 'sixth');
+
                             }
                                };},
                           style: OutlinedButton.styleFrom(
