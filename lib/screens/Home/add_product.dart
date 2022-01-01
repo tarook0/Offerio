@@ -290,15 +290,21 @@ class _ProductState extends State<Product> {
                     var Pprice3 = Price1.text;
                     var Pprice4 = Price1.text;
 
-                    var timestamp = timestamp1.text;
-                   // double maxd1 = maxD - double.tryParse(timestamp);
+
+                    int maxd1 = maxD - int.parse(timestamp1.text);
+                    int maxd2 = maxD - int.parse(timestamp2.text);
+                    int maxd3 = maxD - int.parse(timestamp3.text);
+
                     String PExpiredate = "$maxD / $maxM / $maxY";
-                    String Ptimestamp3= "$maxD / $maxM / $maxY";
+                    String Ptimestamp3= "$maxd3 / $maxM / $maxY";
+                    String Ptimestamp2= "$maxd2 / $maxM / $maxY";
+                    String Ptimestamp1= "$maxd1 / $maxM / $maxY";
                     postUserdata (name: Pname,desc:Pdescription,contact:Pcontact,amount: Pamount,
                         image: _image!.path,
                         date: PExpiredate,
                         category: val,
                       firstprice:Pprice1 ,secondprice: Pprice2,thirdprice: Pprice3,forthprice: Pprice4,
+                      date1: Ptimestamp1 , date2: Ptimestamp2, date3: Ptimestamp3
                     );
                   });
 

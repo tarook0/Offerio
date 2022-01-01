@@ -26,9 +26,13 @@ class _DateExpirePickerState extends State<DateExpirePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      child: buildDatepicker(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox(
+        height: 150,
+
+        child: buildDatepicker(),
+      ),
     );
   }
   Widget buildDatepicker() => CupertinoDatePicker(
