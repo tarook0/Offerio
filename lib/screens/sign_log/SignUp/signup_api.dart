@@ -9,7 +9,6 @@ var x;
 var error;
 var y;
 
-
 Future postdata(
     {required String name,
     required String email,
@@ -19,7 +18,7 @@ Future postdata(
     final response = await http.post(
       //if running on real device keep it like this "http://192.168.1.107:8000/api/signup"
       //if running on emulator keep it like this "https://10.0.2.2:8000/api/signup" (not sure if you can remove the s or not)
-      Uri.parse(Eurl+"signup"),
+      Uri.parse('https://10.0.2.2:8000/api/signup'),
       headers: <String, String>{
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -38,11 +37,9 @@ Future postdata(
     x = response.body;
     print(x);
 
-    responsedataToken= jsonDecode(x)['token'];
+    responsedataToken = jsonDecode(x)['token'];
     print("\n");
     print(responsedataToken);
-
-
   } catch (er) {
     error = er.toString();
     print(error);

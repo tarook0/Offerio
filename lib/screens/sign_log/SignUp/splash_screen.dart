@@ -37,7 +37,6 @@ class _splashScreenState extends State<splashScreen> {
     });
   }
 
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -72,7 +71,10 @@ class _splashScreenState extends State<splashScreen> {
                 ),
               ],
             ),
-            SpinKitThreeBounce(color:  sandybrown,size: 50,),
+            SpinKitThreeBounce(
+              color: sandybrown,
+              size: 50,
+            ),
           ],
         ),
       ),
