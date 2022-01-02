@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
-import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
-import 'package:my_app/screens/sign_log/Log_in/log_in_screen.dart';
-
+//import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
+//import 'package:my_app/screens/sign_log/Log_in/log_in_screen.dart';
+import 'package:my_app/main.dart';
 import 'sign_up.dart';
 import 'signup_api.dart';
 
@@ -26,41 +27,17 @@ class _splashScreenState extends State<splashScreen> {
         email: emailController.text,
         password: passwordController.text,
         password_confirmation: confirmPasswordController.text);
-    // logInPostdata(
-    //     email: EmailController.text, password: PasswordController.text);
-    Timer(const Duration(seconds: 7), () {
-      if (x == 201) {
+
+    Timer(const Duration(seconds: 8), () {
+      if (y == 201) {
         Navigator.pushNamed(context, 'fourth');
-      } else if (x != 201) {
+      } else if (y != 201) {
         Navigator.pushNamed(context, 'third');
       }
     });
   }
 
-  // void initState() {
-  //   super.initState();
-  //   postdata(
-  //       name: nameController.text,
-  //       email: emailController.text,
-  //       password: passwordController.text,
-  //       password_confirmation: confirmPasswordController.text);
 
-  //   Timer(Duration(seconds: 10), () {
-  //     if (x == 201) {
-  //       () => Navigator.pushNamed(context, 'fourth');
-  //       // () => Navigator.pushReplacement(
-  //       //   context,
-  //       //   MaterialPageRoute(
-  //       //     builder: (context) => 'fourth',
-  //       //   ),
-  //       // ),
-  //     } else {
-  //       print("erorr");
-  //     }
-  //   });
-  // }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -85,16 +62,17 @@ class _splashScreenState extends State<splashScreen> {
                 //   height: 300.0,
                 // ),
                 Text(
-                  "A whole offerio store\n at your fingertips",
+                  "A whole Offerio store..\n at your fingertips",
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    //fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                    fontFamily: 'EBGaramond',
                   ),
                 ),
               ],
             ),
-            CircularProgressIndicator()
+            SpinKitThreeBounce(color:  sandybrown,size: 50,),
           ],
         ),
       ),

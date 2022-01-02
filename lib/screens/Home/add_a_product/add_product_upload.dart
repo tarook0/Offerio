@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../constant.dart';
+
 
 
 void postUserdata ({ required String name, required String desc, required String contact, required String amount,
@@ -16,7 +18,7 @@ void postUserdata ({ required String name, required String desc, required String
 async{
 
 
-  final request = await http.MultipartRequest("post",Uri.parse("http://192.168.1.107:8000/api/products"),);
+  final request = await http.MultipartRequest("post",Uri.parse(Eurl+"products"),);
   request.files.add(await http.MultipartFile.fromPath('image', image));
 
   request.headers.addAll({"Content-Type": "application/json",

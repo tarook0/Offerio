@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/screens/sign_log/Log_in/splashScreenL.dart';
 import 'package:my_app/screens/sign_log/SignUp/splash_screen.dart';
-import 'package:my_app/screens/loading_screen.dart';
 import 'screens/Home/home.dart';
 import 'screens/sign_log/Log_in/log_in_screen.dart';
 import 'screens/sign_log/SignUp/sign_up.dart';

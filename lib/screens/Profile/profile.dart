@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_app/constant.dart';
-import 'package:my_app/screens/Home/add_product.dart';
+import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/moudels/app_bar.dart';
 
 class Profile extends StatefulWidget {
@@ -21,8 +21,7 @@ class _ProfileState extends State<Profile> {
   final pickerprofile = ImagePicker();
 
   Future profileimagefromgallery() async {
-    final pickedimageprofile =
-        await pickerprofile.pickImage(source: ImageSource.gallery);
+    final pickedimageprofile = await pickerprofile.pickImage(source: ImageSource.gallery);
     setState(() {
       if (pickedimageprofile != null) {
         _imageprofile = File(pickedimageprofile.path);
@@ -34,8 +33,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Future profileimagefromCamera() async {
-    final pickedimagecamera =
-        await pickerprofile.pickImage(source: ImageSource.camera);
+    final pickedimagecamera = await pickerprofile.pickImage(source: ImageSource.camera);
     setState(() {
       if (pickedimagecamera != null) {
         _imageprofile = File(pickedimagecamera.path);

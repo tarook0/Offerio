@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
@@ -79,16 +80,17 @@ class _splashScreenLState extends State<splashScreenL> {
                 //   height: 300.0,
                 // ),
                 Text(
-                  "A whole offerio store\n at your fingertips",
+                  "A whole Offerio store..\n at your fingertips",
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    //fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                    fontFamily: 'EBGaramond',
                   ),
                 ),
               ],
             ),
-            const CircularProgressIndicator()
+            SpinKitThreeBounce(color:  sandybrown,size: 50,),
           ],
         ),
       ),

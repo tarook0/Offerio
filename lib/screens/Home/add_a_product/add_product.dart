@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/RadiolistCat.dart';
-import 'package:my_app/screens/Home/add_product_upload.dart';
-import '../../constant.dart';
+import 'package:my_app/screens/Home/add_a_product/add_product_upload.dart';
+import '../../../constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:my_app/moudels/date_picker.dart';
@@ -285,24 +285,26 @@ class _ProductState extends State<Product> {
                     var Pcontact = _productcontactTEC.text;
                     var Pamount = _productamountTEC.text;
 
+                    //prices after discounts
                     var Pprice1 = Price1.text;
                     var Pprice2 = Price1.text;
                     var Pprice3 = Price1.text;
                     var Pprice4 = Price1.text;
 
 
-                    int maxd1 = maxD - int.parse(timestamp1.text);
-                    int maxd2 = maxD - int.parse(timestamp2.text);
-                    int maxd3 = maxD - int.parse(timestamp3.text);
-
+                    //expire date
                     String PExpiredate = "$maxD / $maxM / $maxY";
-                    String Ptimestamp3= "$maxd3 / $maxM / $maxY";
-                    String Ptimestamp2= "$maxd2 / $maxM / $maxY";
-                    String Ptimestamp1= "$maxd1 / $maxM / $maxY";
+
+                    //discount dates
+                    String Ptimestamp3= "$disday1 / $dismonth1 / $disyear1";
+                    String Ptimestamp2= "$disday2 / $dismonth2 / $disyear2";
+                    String Ptimestamp1= "$disday3 / $dismonth3 / $disyear3";
+
+
                     postUserdata (name: Pname,desc:Pdescription,contact:Pcontact,amount: Pamount,
                         image: _image!.path,
                         date: PExpiredate,
-                        category: val,
+                        category: val.toString(),
                       firstprice:Pprice1 ,secondprice: Pprice2,thirdprice: Pprice3,forthprice: Pprice4,
                       date1: Ptimestamp1 , date2: Ptimestamp2, date3: Ptimestamp3
                     );

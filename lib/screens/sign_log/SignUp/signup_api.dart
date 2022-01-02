@@ -7,6 +7,8 @@ import 'package:my_app/constant.dart';
 
 var x;
 var error;
+var y;
+
 
 Future postdata(
     {required String name,
@@ -17,7 +19,7 @@ Future postdata(
     final response = await http.post(
       //if running on real device keep it like this "http://192.168.1.107:8000/api/signup"
       //if running on emulator keep it like this "https://10.0.2.2:8000/api/signup" (not sure if you can remove the s or not)
-      Uri.parse("http://192.168.1.4:8000/api/signup"),
+      Uri.parse(Eurl+"signup"),
       headers: <String, String>{
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -30,9 +32,17 @@ Future postdata(
         "password_confirmation": password_confirmation,
       }),
     );
+    y = response.statusCode;
+    print(y);
 
-    x = response.statusCode;
-    print(response.body);
+    x = response.body;
+    print(x);
+
+    responsedataToken= jsonDecode(x)['token'];
+    print("\n");
+    print(responsedataToken);
+
+
   } catch (er) {
     error = er.toString();
     print(error);

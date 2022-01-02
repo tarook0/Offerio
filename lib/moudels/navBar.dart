@@ -4,7 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/otherlist.dart';
-import 'package:my_app/screens/Home/add_product.dart';
+import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
