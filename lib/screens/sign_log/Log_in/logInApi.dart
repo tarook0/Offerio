@@ -15,7 +15,7 @@ Future logInPostdata({
 }) async {
   //if running on real device keep it like this "http://192.168.1.107:8000/api/signup"
   //if running on emulator keep it like this "https://10.0.2.2:8000/api/login" (not sure if you can remove the s or not)
-  final response = await http.post(Uri.parse(EmulatorUrl + "login"),
+  final response = await http.post(Uri.parse(Eurl + "login"),
       headers: <String, String>{
         'Charset': 'utf-8',
         'Accept': 'application/json',

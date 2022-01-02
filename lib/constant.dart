@@ -21,9 +21,10 @@ final TextStyle kDescriptionStyle = TextStyle(
   color: persian,
   fontSize: 13,
 );
-final String Eurl = "http://192.168.1.107:8000/api/"; // EDMA Url
-final String Turl = "http://192.168.1.4:8000/api/"; // TAREK Url
-final String EmulatorUrl =
-    "http://10.0.2.2:8000/api/"; // when running on emulator
+final String Eurl = "http://192.168.1.4:8000/api/";
+//"http://192.168.1.107:8000/api/"  EDMA Url
+// "http://192.168.1.4:8000/api/" TAREK Url
+//  "http://10.0.2.2:8000/api/" when running on emulator
 
+// ignore: prefer_typing_uninitialized_variables
 var responsedataToken;

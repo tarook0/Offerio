@@ -18,7 +18,7 @@ Future postdata(
     final response = await http.post(
       //if running on real device keep it like this "http://192.168.1.107:8000/api/signup"
       //if running on emulator keep it like this "https://10.0.2.2:8000/api/signup" (not sure if you can remove the s or not)
-      Uri.parse('https://10.0.2.2:8000/api/signup'),
+      Uri.parse(Eurl + "signup"),
       headers: <String, String>{
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -32,12 +32,10 @@ Future postdata(
       }),
     );
     y = response.statusCode;
-    print(y);
-
     x = response.body;
-    print(x);
-
     responsedataToken = jsonDecode(x)['token'];
+    print(y);
+    print(x);
     print("\n");
     print(responsedataToken);
   } catch (er) {
