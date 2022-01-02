@@ -21,8 +21,7 @@ class _ProfileState extends State<Profile> {
   final pickerprofile = ImagePicker();
 
   Future profileimagefromgallery() async {
-    final pickedimageprofile =
-        await pickerprofile.pickImage(source: ImageSource.gallery);
+    final pickedimageprofile = await pickerprofile.pickImage(source: ImageSource.gallery);
     setState(() {
       if (pickedimageprofile != null) {
         _imageprofile = File(pickedimageprofile.path);
@@ -34,8 +33,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Future profileimagefromCamera() async {
-    final pickedimagecamera =
-        await pickerprofile.pickImage(source: ImageSource.camera);
+    final pickedimagecamera = await pickerprofile.pickImage(source: ImageSource.camera);
     setState(() {
       if (pickedimagecamera != null) {
         _imageprofile = File(pickedimagecamera.path);

@@ -28,10 +28,10 @@ class _splashScreenState extends State<splashScreen> {
         password: passwordController.text,
         password_confirmation: confirmPasswordController.text);
 
-    Timer(const Duration(seconds: 7), () {
-      if (x == 201) {
+    Timer(const Duration(seconds: 8), () {
+      if (y == 201) {
         Navigator.pushNamed(context, 'fourth');
-      } else if (x != 201) {
+      } else if (y != 201) {
         Navigator.pushNamed(context, 'third');
       }
     });

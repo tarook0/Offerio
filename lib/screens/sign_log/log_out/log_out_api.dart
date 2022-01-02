@@ -5,8 +5,8 @@ import '../../../constant.dart';
 
 Future logout() async{
   final logoutresponse = await http.post (Uri.parse(Eurl+"logout"),
-    headers: <String , String>{
-
+    headers: {
+      "Authorization" : responsedataToken,
       "Accept": "application/json",
       'Charset': 'utf-8',
     },

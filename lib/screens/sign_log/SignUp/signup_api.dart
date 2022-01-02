@@ -7,6 +7,8 @@ import 'package:my_app/constant.dart';
 
 var x;
 var error;
+var y;
+
 
 Future postdata(
     {required String name,
@@ -30,9 +32,17 @@ Future postdata(
         "password_confirmation": password_confirmation,
       }),
     );
+    y = response.statusCode;
+    print(y);
 
-    x = response.statusCode;
+    x = response.body;
     print(x);
+
+    responsedataToken= jsonDecode(x)['token'];
+    print("\n");
+    print(responsedataToken);
+
+
   } catch (er) {
     error = er.toString();
     print(error);
