@@ -5,8 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_app/constant.dart';
+import 'package:my_app/moudels/navBar.dart';
 import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/moudels/app_bar.dart';
+import 'package:my_app/screens/Profile/profile_api.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -15,8 +17,18 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
-//functions to pick image from gallery or camera and set it as profile image
+
 class _ProfileState extends State<Profile> {
+var nnn;
+var eee;
+  void initState() {
+    super.initState();
+  setState(() {
+   nnn=username;
+   eee=emailaddress;
+  });}
+
+//functions to pick image from gallery or camera and set it as profile image
   File? _imageprofile;
   final pickerprofile = ImagePicker();
 
@@ -64,7 +76,7 @@ class _ProfileState extends State<Profile> {
                       child: CircleAvatar(
                         radius: 60,
                         backgroundImage: _imageprofile == null
-                            ? AssetImage('images/background1.png')
+                            ? AssetImage('images/profilepic.png')
                             : FileImage(_imageprofile!) as ImageProvider,
                       ),
                     ),
@@ -72,31 +84,44 @@ class _ProfileState extends State<Profile> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'Name:',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Name:',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(width: 5,),
+                      Text(
+                          nnn,
+                        style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'Email:',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Email:',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),),
+                    SizedBox(width: 5,),
+                    Text(
+                     eee,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'Phone:',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
+
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(

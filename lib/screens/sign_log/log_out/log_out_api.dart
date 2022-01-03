@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import '../../../constant.dart';
 
 var exit;
+
 Future logout() async {
   final logoutresponse = await http.post(
     Uri.parse(Eurl + "logout"),
@@ -14,6 +15,7 @@ Future logout() async {
       'Charset': 'utf-8',
     },
   );
-  if (logoutresponse.statusCode == 201) {}
+  exit=logoutresponse.statusCode;
+
   print(logoutresponse.statusCode);
 }

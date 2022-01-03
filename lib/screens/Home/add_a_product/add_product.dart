@@ -287,9 +287,9 @@ class _ProductState extends State<Product> {
 
                     //prices after discounts
                     var Pprice1 = Price1.text;
-                    var Pprice2 = Price1.text;
-                    var Pprice3 = Price1.text;
-                    var Pprice4 = Price1.text;
+                    var Pprice2 = Price2.text;
+                    var Pprice3 = Price3.text;
+                    var Pprice4 = Price4.text;
 
 
                     //expire date

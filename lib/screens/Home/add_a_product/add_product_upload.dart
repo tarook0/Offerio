@@ -21,33 +21,39 @@ void postUserdata({
   required String date2,
   required String date1,
 }) async {
-  final request = await http.MultipartRequest(
-    "post",
-    Uri.parse(Eurl + "products"),
-  );
-  request.files.add(await http.MultipartFile.fromPath('image', image));
+  try{
+    final request = await http.MultipartRequest(
+      "post",
+      Uri.parse(Eurl + "products"),
+    );
+    request.headers.addAll({
+      "Authorization": "Bearer $responsedataToken",
+      "Content-Type": "multipart/form-data;boundary= boundary=----WebKitFormBoundaryzuW5nPZQFQCwQtg4",
+      "Accept": "application/json",
+      "Charset": "utf-8",
+      "Accept-Encoding" : "gzip, deflate, br",
+    });
 
-  request.headers.addAll({
-    "Authorization": "Bearer $responsedataToken",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    'Charset': 'utf-8',
-  });
+    request.files.add(await http.MultipartFile.fromPath('image', image));
 
-  request.fields['name'] = name;
-  request.fields['contact'] = contact;
-  request.fields['amount'] = amount;
-  request.fields['description'] = desc;
-  request.fields['price-1'] = firstprice;
-  request.fields['price-2'] = secondprice;
-  request.fields['price-3'] = thirdprice;
-  request.fields['price-4'] = forthprice;
-  request.fields['category_id'] = category;
-  request.fields['timestamp-4'] = date;
-  request.fields['timestamp-3'] = date3;
-  request.fields['timestamp-2'] = date2;
-  request.fields['timestamp-1'] = date1;
+    request.fields['name'] = name;
+    request.fields['contact'] = contact;
+    request.fields['amount'] = amount;
+    request.fields['description'] = desc;
+    request.fields['price-1'] = firstprice;
+    request.fields['price-2'] = secondprice;
+    request.fields['price-3'] = thirdprice;
+    request.fields['price-4'] = forthprice;
+    request.fields['category_id'] = category;
+    request.fields['timestamp-4'] = date;
+    request.fields['timestamp-3'] = date3;
+    request.fields['timestamp-2'] = date2;
+    request.fields['timestamp-1'] = date1;
 
-  var res = await request.send();
-  print(res.statusCode);
+    var res = await request.send();
+    print(res.statusCode);
+  }
+  catch(errr){
+    print (errr.toString());
+  }
 }

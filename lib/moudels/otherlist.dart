@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/sign_log/log_out/log_out_api.dart';
+import 'package:my_app/screens/sign_log/log_out/out_splashscreen.dart';
 import 'navBar.dart';
 
 class Otherbutton extends StatefulWidget {
@@ -83,7 +84,7 @@ class _OtherbuttonState extends State<Otherbutton> {
             leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () {
-              logout();
+              Navigator.pushNamed(context, 'ten');
             })
       ],
     );

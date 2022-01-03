@@ -9,8 +9,10 @@ import 'package:my_app/screens/Home/favorite.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/screens/Profile/profile.dart';
-
+import 'package:my_app/screens/Profile/profile_api.dart';
 import '../constant.dart';
+
+
 int currentTab = 0;
 class navBar extends StatefulWidget {
   const navBar({Key ? key}) : super(key: key);

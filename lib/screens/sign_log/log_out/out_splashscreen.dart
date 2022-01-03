@@ -1,46 +1,46 @@
-//http: 0.12.0+2
-
+// ignore_for_file: unused_import, camel_case_types, import_of_legacy_library_into_null_safe, file_names
 
 import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/home.dart';
-//import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
-//import 'package:my_app/screens/sign_log/Log_in/log_in_screen.dart';
-import 'package:my_app/main.dart';
-import 'package:my_app/screens/Profile/profile_api.dart';
-import 'sign_up.dart';
-import 'signup_api.dart';
+import 'package:my_app/screens/sign_log/Log_in/logInApi.dart';
+import 'package:my_app/screens/sign_log/Log_in/log_in_screen.dart';
+import 'dart:io' show Platform;
+import 'log_out_api.dart';
 
-class splashScreen extends StatefulWidget {
-  const splashScreen({Key? key}) : super(key: key);
+class outsplashScreen extends StatefulWidget {
+  const outsplashScreen({Key? key}) : super(key: key);
 
   @override
-  _splashScreenState createState() => _splashScreenState();
+  _outsplashScreenState createState() => _outsplashScreenState();
 }
 
-class _splashScreenState extends State<splashScreen> {
+class _outsplashScreenState extends State<outsplashScreen> {
   @override
   void initState() {
     super.initState();
 
-    postdata(
-        name: nameController.text,
-        email: emailController.text,
-        password: passwordController.text,
-        password_confirmation: confirmPasswordController.text);
+    logout();
+    Timer(const Duration(seconds: 5), () {
+      if (exit == 200) {
+        if(Platform.isAndroid){
+           SystemNavigator.pop();
+        }else {
+          exit(0);
+        }
 
-      Timer(const Duration(seconds: 10), () {
-      if (y == 201) {
+      } else if (exit != 200) {
         Navigator.pushNamed(context, 'fourth');
-      } else if (y != 201) {
-        Navigator.pushNamed(context, 'third');
       }
     });
-
   }
 
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -60,20 +60,16 @@ class _splashScreenState extends State<splashScreen> {
             Column(
               children: const [
                 Text(
-                  "A whole Offerio store..\n at your fingertips",
+                  "GoodBye..",
                   style: TextStyle(
                     color: Colors.white,
-                    //fontWeight: FontWeight.bold,
                     fontSize: 23,
                     fontFamily: 'EBGaramond',
                   ),
                 ),
               ],
             ),
-            SpinKitThreeBounce(
-              color: sandybrown,
-              size: 50,
-            ),
+            SpinKitThreeBounce(color:  sandybrown,size: 50,),
           ],
         ),
       ),

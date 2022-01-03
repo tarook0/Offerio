@@ -147,7 +147,6 @@ class _ProductPriceState extends State<ProductPrice> {
               TextFormField(controller: disday2, keyboardType: TextInputType.number,),
               TextFormField(controller: dismonth2, keyboardType: TextInputType.number,),
               TextFormField(controller: disyear2, keyboardType: TextInputType.number,),
-           //   Text('Days or less from the expiredate'),
             ]
         ),
 
@@ -177,7 +176,6 @@ class _ProductPriceState extends State<ProductPrice> {
               TextFormField(controller: disday3, keyboardType: TextInputType.number,),
               TextFormField(controller: dismonth3, keyboardType: TextInputType.number,),
               TextFormField(controller: disyear3, keyboardType: TextInputType.number,),
-             // Text('Days or less from the expiredate'),
             ]
         ),
 
@@ -185,18 +183,3 @@ class _ProductPriceState extends State<ProductPrice> {
     );
   }
 }
-/* TextFormField(
-                controller: timestamp1,
-                cursorColor: persian,
-                decoration: InputDecoration(
-                  hintText: 'e.g: 30',
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: persian,
-                      width: 2,
-                    ),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-              ),*/
-
