@@ -279,36 +279,33 @@ class _ProductState extends State<Product> {
               ),
               Center(
                 child: OutlinedButton(
-                  onPressed: () { setState(() {
-                    var Pname = _productnameTEC.text;
-                    var Pdescription = _productdescriptionTEC.text;
-                    var Pcontact = _productcontactTEC.text;
-                    var Pamount = _productamountTEC.text;
+                  onPressed: () async {
+                   var d1= disday1.text;
+                   var m1= dismonth1.text;
+                   var y1= disyear1.text;
 
-                    //prices after discounts
-                    var Pprice1 = Price1.text;
-                    var Pprice2 = Price2.text;
-                    var Pprice3 = Price3.text;
-                    var Pprice4 = Price4.text;
+                   var d2= disday2.text;
+                   var m2= dismonth2.text;
+                   var y2= disyear2.text;
 
+                   var d3= disday3.text;
+                   var m3= dismonth3.text;
+                   var y3= disyear3.text;
 
-                    //expire date
-                    String PExpiredate = "$maxD / $maxM / $maxY";
-
-                    //discount dates
-                    String Ptimestamp3= "$disday1 / $dismonth1 / $disyear1";
-                    String Ptimestamp2= "$disday2 / $dismonth2 / $disyear2";
-                    String Ptimestamp1= "$disday3 / $dismonth3 / $disyear3";
-
-
-                    postUserdata (name: Pname,desc:Pdescription,contact:Pcontact,amount: Pamount,
-                        image: _image!.path,
-                        date: PExpiredate,
+                    await postUserdata (name: _productnameTEC.text,desc:_productdescriptionTEC.text,
+                        contact:_productcontactTEC.text,amount: _productamountTEC.text,
+                    image: _image!.path,
+                    date: "$maxD-$maxM-$maxY",
                         category: val.toString(),
-                      firstprice:Pprice1 ,secondprice: Pprice2,thirdprice: Pprice3,forthprice: Pprice4,
-                      date1: Ptimestamp1 , date2: Ptimestamp2, date3: Ptimestamp3
+                    firstprice:Price1.text ,secondprice: Price2.text,thirdprice: Price3.text,forthprice: Price4.text,
+                        timestamp1: "$d1-$m1-$y1" , timestamp2: "$d2-$m2-$y2",
+                        timestamp3: "$d3-$m3-$y3"
+
                     );
-                  });
+                   //  print("timestamp1: $d1-$m1-$y1" );
+                   // print("timestamp2: $d2-$m2-$y2" );
+                   // print("timestamp3: $d3-$m3-$y3" );
+                   // print("timestamp4: $maxD-$maxM-$maxY" );
 
                   },
                   style: OutlinedButton.styleFrom(

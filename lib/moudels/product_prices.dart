@@ -107,6 +107,7 @@ class _ProductPriceState extends State<ProductPrice> {
               TextFormField(
                 controller: Price2,
                 cursorColor: persian,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -149,8 +150,6 @@ class _ProductPriceState extends State<ProductPrice> {
               TextFormField(controller: disyear2, keyboardType: TextInputType.number,),
             ]
         ),
-
-
 
         //FIFTH row of the table
         TableRow(
