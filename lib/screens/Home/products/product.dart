@@ -3,6 +3,7 @@
 //     final products = productsFromMap(jsonString);
 
 import 'dart:convert';
+import 'dart:io';
 
 List<Products> productsFromMap(String str) =>
     List<Products>.from(json.decode(str).map((x) => Products.fromMap(x)));
@@ -16,7 +17,7 @@ class Products {
   final String? description;
   final String? userId;
   final String? categoryId;
-  final String? imgName;
+  final File? imgName;
   final int? likeesCount;
   final String? price;
   Products({

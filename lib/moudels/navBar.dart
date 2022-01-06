@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: file_names, prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,27 +10,26 @@ import 'package:my_app/screens/Profile/profile.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
 import '../constant.dart';
 
-
 int currentTab = 0;
+
 class navBar extends StatefulWidget {
-  const navBar({Key ? key}) : super(key: key);
+  const navBar({Key? key}) : super(key: key);
 
   @override
   _navBarState createState() => _navBarState();
 }
 
 class _navBarState extends State<navBar> {
-
   final List<Widget> screens = [
-    Home(),
+    homeScreen(),
     Favorite(),
     Profile(),
     Product(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = homeScreen();
-String  selectedCurrency = 'english' ;
- bool _buttonappear=true;
+  String selectedCurrency = 'english';
+  bool _buttonappear = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +38,7 @@ String  selectedCurrency = 'english' ;
         bucket: bucket,
       ),
       floatingActionButton: Visibility(
-        visible:_buttonappear ,
+        visible: _buttonappear,
         child: FloatingActionButton(
           backgroundColor: persian,
           tooltip: 'add a product',
@@ -51,7 +48,7 @@ String  selectedCurrency = 'english' ;
               () {
                 currentScreen = Product();
                 currentTab = 4;
-                _buttonappear=false;
+                _buttonappear = false;
               },
             );
           },
@@ -75,7 +72,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = homeScreen();
                         currentTab = 0;
-                        _buttonappear=true;
+                        _buttonappear = true;
                       });
                     },
                     child: Column(
@@ -86,7 +83,9 @@ String  selectedCurrency = 'english' ;
                         Text(
                           'Home',
                           style: TextStyle(
-                              color: currentTab == 0 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
+                              color: currentTab == 0 ? sandybrown : charcoal,
+                              fontFamily: 'EBGaramond',
+                              fontSize: 16),
                         )
                       ],
                     ),
@@ -97,7 +96,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = Favorite();
                         currentTab = 1;
-                        _buttonappear=true;
+                        _buttonappear = true;
                       });
                     },
                     child: Column(
@@ -108,7 +107,9 @@ String  selectedCurrency = 'english' ;
                         Text(
                           'Favorite',
                           style: TextStyle(
-                              color: currentTab == 1 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
+                              color: currentTab == 1 ? sandybrown : charcoal,
+                              fontFamily: 'EBGaramond',
+                              fontSize: 16),
                         )
                       ],
                     ),
@@ -125,7 +126,7 @@ String  selectedCurrency = 'english' ;
                       setState(() {
                         currentScreen = Profile();
                         currentTab = 3;
-                        _buttonappear=true;
+                        _buttonappear = true;
                       });
                     },
                     child: Column(
@@ -136,7 +137,9 @@ String  selectedCurrency = 'english' ;
                         Text(
                           'Profile',
                           style: TextStyle(
-                              color: currentTab == 3 ? sandybrown : charcoal,fontFamily: 'EBGaramond',fontSize: 16),
+                              color: currentTab == 3 ? sandybrown : charcoal,
+                              fontFamily: 'EBGaramond',
+                              fontSize: 16),
                         )
                       ],
                     ),
@@ -150,7 +153,4 @@ String  selectedCurrency = 'english' ;
       ),
     );
   }
-
-
-  }
-
+}
