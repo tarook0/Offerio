@@ -20,7 +20,7 @@ class PhotoHero extends StatelessWidget {
           child: InkWell(
             //onTap: onTap,
             child: Image.network(
-              '${Eurl}images/products/${photo}',
+              '${Eurl}images/${photo}',
               fit: BoxFit.cover,
               width: 75,
               height: 75,
