@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unnecessary_cast
 
 import 'package:flutter/material.dart';
 import 'package:my_app/back-to-front/products-handler.dart';
@@ -6,6 +6,7 @@ import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
 import 'package:my_app/screens/Home/products/ProductsApi.dart';
+import 'package:my_app/screens/Home/products/image_api.dart';
 import 'package:my_app/screens/Home/products/product.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/products/product_list.dart';
@@ -30,6 +31,7 @@ class _homeScreenState extends State<homeScreen> {
   void initState() {
     super.initState();
     futurePost = fetchPost();
+    getImage(n: imageName);
   }
 
   // void getProducts() {
@@ -46,51 +48,49 @@ class _homeScreenState extends State<homeScreen> {
           if (snapshot.hasData) {
             return ListView.builder(
               itemCount: snapshot.data!.length,
-              itemBuilder: (_, index) => SingleChildScrollView(
-                child: Column(
-                  children: [
-                    buildSearchBar(),
-                    buildIconList(),
-                    const SizedBox(
-                      height: 15,
+              itemBuilder: (_, index) => ListView(
+                children: [
+                  buildSearchBar(),
+                  buildIconList(),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 15, right: 15.0),
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: MediaQuery.of(context).size.height - 50,
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      primary: false,
+//               crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 15.0,
+                      childAspectRatio: 0.8,
+                      children: <Widget>[
+                        _buildCard(
+                            '${snapshot.data![index].name}',
+                            '${snapshot.data![index].price}',
+                            imageName = '${snapshot.data![index].imgName}',
+                            false,
+                            false,
+                            context),
+                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie classic', '\$1.99',
+                        //     'assets/cookieclassic.jpg', false, true, context),
+                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
+                        //     false, false, context),
+                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie classic', '\$1.99',
+                        //     'assets/cookieclassic.jpg', false, true, context),
+                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                        //     false, false, context)
+                      ],
                     ),
-                    Container(
-                      padding: EdgeInsets.only(left: 15, right: 15.0),
-                      width: MediaQuery.of(context).size.width - 30,
-                      height: MediaQuery.of(context).size.height - 50,
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        primary: false,
-                        //               crossAxisSpacing: 10.0,
-                        mainAxisSpacing: 15.0,
-                        childAspectRatio: 0.8,
-                        children: <Widget>[
-                          _buildCard(
-                              '${snapshot.data![index].name}',
-                              '${snapshot.data![index].price}',
-                              '${snapshot.data![index].imgName}',
-                              false,
-                              false,
-                              context),
-                          // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                          //     true, false, context),
-                          // _buildCard('Cookie classic', '\$1.99',
-                          //     'assets/cookieclassic.jpg', false, true, context),
-                          // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                          //     true, false, context),
-                          // _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
-                          //     false, false, context),
-                          // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                          //     true, false, context),
-                          // _buildCard('Cookie classic', '\$1.99',
-                          //     'assets/cookieclassic.jpg', false, true, context),
-                          // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                          //     false, false, context)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           } else {
@@ -131,24 +131,29 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
           children: [
             Padding(
               padding: EdgeInsets.all(5.0),
-              child: isFavorit
-                  ? Icon(
-                      Icons.favorite,
-                      color: charcoal,
-                    )
-                  : Icon(
-                      Icons.favorite_border,
-                      color: charcoal,
-                    ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  isFavorit
+                      ? Icon(
+                          Icons.favorite,
+                          color: charcoal,
+                        )
+                      : Icon(
+                          Icons.favorite_border,
+                          color: charcoal,
+                        ),
+                ],
+              ),
             ),
             Hero(
-              tag: imagePath,
+              tag: FileImage(imageFile) as ImageProvider,
               child: Container(
                 height: 75.0,
                 width: 75.0,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(imagePath),
+                    image: FileImage(imageFile) as ImageProvider,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -211,5 +216,4 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
       ),
     ),
   );
-  ;
 }

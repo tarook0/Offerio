@@ -17,7 +17,7 @@ class Products {
   final String? description;
   final String? userId;
   final String? categoryId;
-  final File? imgName;
+  final String? imgName;
   final int? likeesCount;
   final String? price;
   Products({

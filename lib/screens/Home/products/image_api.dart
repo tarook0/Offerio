@@ -4,9 +4,10 @@ import 'package:my_app/screens/Home/products/product_list.dart';
 import 'dart:io';
 
 import '../../../constant.dart';
-var imageFile;
- Future getImage({required String n}) async{
-   try{
+
+File? imageFile;
+Future getImage({required String n}) async {
+  try {
     final imageResponse = await http.get(
       Uri.parse(Eurl + "images/$n"),
       headers: <String, String>{
@@ -14,9 +15,8 @@ var imageFile;
         "Accept": "application/json"
       },
     );
-    imageFile =imageResponse.body;
-  }
-  catch(ert){
-     print(ert.toString());
+    imageFile = imageResponse.body as File;
+  } catch (ert) {
+    print(ert.toString());
   }
 }

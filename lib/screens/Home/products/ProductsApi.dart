@@ -3,8 +3,16 @@
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/products/product.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_app/screens/Home/products/product_list.dart';
 import 'dart:async';
 import 'dart:convert';
+
+import 'image_api.dart';
+
+// @override
+// void initState() {
+//   getImage(n: imageName);
+// }
 
 Future<List<Products>> fetchPost() async {
   final response = await http.get(Uri.parse(Eurl + 'products'));
@@ -17,4 +25,3 @@ Future<List<Products>> fetchPost() async {
     throw Exception('Failed to load album');
   }
 }
-

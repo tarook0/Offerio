@@ -28,9 +28,8 @@ class _productsListState extends State<productsList> {
   @override
   void initState() {
     super.initState();
-    getImage(n: imageName);
     futurePost = fetchPost();
-
+    getImage(n: imageName);
   }
 
   @override
@@ -64,7 +63,7 @@ class _productsListState extends State<productsList> {
                         _buildCard(
                             '${snapshot.data![index].name}',
                             '${snapshot.data![index].price}',
-                            imageName='${snapshot.data![index].imgName}',
+                            imageName = '${snapshot.data![index].imgName}',
                             false,
                             false,
                             context),
