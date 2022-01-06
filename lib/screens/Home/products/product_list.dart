@@ -9,7 +9,11 @@ import 'package:my_app/screens/Home/products/ProductsApi.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/constant.dart';
+import 'image_api.dart';
 import 'product.dart';
+import 'dart:io';
+
+var imageName;
 
 class productsList extends StatefulWidget {
   const productsList({Key? key}) : super(key: key);
@@ -24,7 +28,9 @@ class _productsListState extends State<productsList> {
   @override
   void initState() {
     super.initState();
+    getImage(n: imageName);
     futurePost = fetchPost();
+
   }
 
   @override
@@ -58,7 +64,7 @@ class _productsListState extends State<productsList> {
                         _buildCard(
                             '${snapshot.data![index].name}',
                             '${snapshot.data![index].price}',
-                            '${snapshot.data![index].imgName}',
+                            imageName='${snapshot.data![index].imgName}',
                             false,
                             false,
                             context),
@@ -142,7 +148,7 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
                 width: 75.0,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(imagePath),
+                    image: FileImage(imageFile!) as ImageProvider,
                     fit: BoxFit.contain,
                   ),
                 ),
