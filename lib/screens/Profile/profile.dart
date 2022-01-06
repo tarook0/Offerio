@@ -9,6 +9,7 @@ import 'package:my_app/moudels/navBar.dart';
 import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
+import 'package:my_app/screens/Profile/profile_pic.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ var eee;
         _imageprofile = File(pickedimageprofile.path);
       } else {
         print('null');
+        addprofileimage(imageprofile:"images/profilepic.png");
       }
       Navigator.pop(context);
     });

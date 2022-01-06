@@ -131,20 +131,15 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
           children: [
             Padding(
               padding: EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  isFavorit
-                      ? Icon(
-                          Icons.favorite,
-                          color: charcoal,
-                        )
-                      : Icon(
-                          Icons.favorite_border,
-                          color: charcoal,
-                        ),
-                ],
-              ),
+              child: isFavorit
+                  ? Icon(
+                      Icons.favorite,
+                      color: charcoal,
+                    )
+                  : Icon(
+                      Icons.favorite_border,
+                      color: charcoal,
+                    ),
             ),
             Hero(
               tag: imagePath,

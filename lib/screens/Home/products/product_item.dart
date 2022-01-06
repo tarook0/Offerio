@@ -111,7 +111,7 @@ class producte_item extends StatelessWidget {
                         size: 12,
                       ),
                       Text(
-                        'Edit your priduct',
+                        'Edit your product',
                         style: kDescriptionStyle,
                       ),
                     ],
