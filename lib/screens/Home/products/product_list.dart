@@ -5,59 +5,87 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
 import 'package:my_app/screens/Home/favorite.dart';
+import 'package:my_app/screens/Home/products/ProductsApi.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/constant.dart';
 import 'product.dart';
 
-class productsList extends StatelessWidget {
+class productsList extends StatefulWidget {
   const productsList({Key? key}) : super(key: key);
+
+  @override
+  State<productsList> createState() => _productsListState();
+}
+
+class _productsListState extends State<productsList> {
+  late Future<List<Products>> futurePost;
+
+  @override
+  void initState() {
+    super.initState();
+    futurePost = fetchPost();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFAF8),
-      body: ListView(
-        children: <Widget>[
-          buildSearchBar(),
-          buildIconList(),
-          const SizedBox(
-            height: 15.0,
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 15, right: 15.0),
-            width: MediaQuery.of(context).size.width - 30,
-            height: MediaQuery.of(context).size.height - 50,
-            child: GridView.count(
-              crossAxisCount: 2,
-              primary: false,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 15.0,
-              childAspectRatio: 0.8,
-              children: <Widget>[
-                _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
-                    false, false, context),
-                _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                    true, false, context),
-                _buildCard('Cookie classic', '\$1.99',
-                    'assets/cookieclassic.jpg', false, true, context),
-                _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                    true, false, context),
-                // _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
-                //     false, false, context),
-                // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                //     true, false, context),
-                // _buildCard('Cookie classic', '\$1.99',
-                //     'assets/cookieclassic.jpg', false, true, context),
-                // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                //     false, false, context)
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 15.0,
-          )
-        ],
+      body: FutureBuilder<List<Products>>(
+        future: futurePost,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (_, index) => ListView(
+                children: [
+                  buildSearchBar(),
+                  buildIconList(),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 15, right: 15.0),
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: MediaQuery.of(context).size.height - 50,
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      primary: false,
+//               crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 15.0,
+                      childAspectRatio: 0.8,
+                      children: <Widget>[
+                        _buildCard(
+                            '${snapshot.data![index].name}',
+                            '${snapshot.data![index].price}',
+                            '${snapshot.data![index].imgName}',
+                            false,
+                            false,
+                            context),
+                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie classic', '\$1.99',
+                        //     'assets/cookieclassic.jpg', false, true, context),
+                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
+                        //     false, false, context),
+                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                        //     true, false, context),
+                        // _buildCard('Cookie classic', '\$1.99',
+                        //     'assets/cookieclassic.jpg', false, true, context),
+                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                        //     false, false, context)
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }
@@ -97,13 +125,13 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
                 children: [
                   isFavorit
                       ? Icon(
-                    Icons.favorite,
-                    color: charcoal,
-                  )
+                          Icons.favorite,
+                          color: charcoal,
+                        )
                       : Icon(
-                    Icons.favorite_border,
-                    color: charcoal,
-                  ),
+                          Icons.favorite_border,
+                          color: charcoal,
+                        ),
                 ],
               ),
             ),

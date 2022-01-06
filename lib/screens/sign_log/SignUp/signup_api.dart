@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_app/constant.dart';
 
-
 var x;
 var error;
 var y;
