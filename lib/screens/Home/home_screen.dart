@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/back-to-front/products-handler.dart';
+import 'package:my_app/moudels/Hero.dart';
 import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
@@ -31,7 +32,7 @@ class _homeScreenState extends State<homeScreen> {
   void initState() {
     super.initState();
     futurePost = fetchPost();
-    getImage(n: imageName);
+    // getImage(n: imageName);
   }
 
   // void getProducts() {
@@ -48,7 +49,7 @@ class _homeScreenState extends State<homeScreen> {
           if (snapshot.hasData) {
             return ListView.builder(
               itemCount: snapshot.data!.length,
-              itemBuilder: (_, index) => ListView(
+              itemBuilder: (_, index) => Column(
                 children: [
                   buildSearchBar(),
                   buildIconList(),
@@ -69,24 +70,10 @@ class _homeScreenState extends State<homeScreen> {
                         _buildCard(
                             '${snapshot.data![index].name}',
                             '${snapshot.data![index].price}',
-                            imageName = '${snapshot.data![index].imgName}',
+                            '${snapshot.data![index].imgName}',
                             false,
                             false,
                             context),
-                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                        //     true, false, context),
-                        // _buildCard('Cookie classic', '\$1.99',
-                        //     'assets/cookieclassic.jpg', false, true, context),
-                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                        //     true, false, context),
-                        // _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
-                        //     false, false, context),
-                        // _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
-                        //     true, false, context),
-                        // _buildCard('Cookie classic', '\$1.99',
-                        //     'assets/cookieclassic.jpg', false, true, context),
-                        // _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                        //     false, false, context)
                       ],
                     ),
                   ),
@@ -146,19 +133,21 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
                 ],
               ),
             ),
-            Hero(
-              tag: FileImage(imageFile) as ImageProvider,
-              child: Container(
-                height: 75.0,
-                width: 75.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: FileImage(imageFile) as ImageProvider,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ),
+
+            PhotoHero(photo: imagePath, width: 75.0),
+            // Hero(
+            //   tag: Image.network('${Eurl}images/products/${imageName}'),
+            //   child: Container(
+            //     height: 75.0,
+            //     width: 75.0,
+            //     decoration: BoxDecoration(
+            //         // image: DecorationImage(
+            //         //   image: Image.network('${Eurl}images/products/${imageName}'),
+            //         //   fit: BoxFit.contain,
+            //         // ),
+            //         ),
+            //   ),
+            // ),
             const SizedBox(
               height: 7.0,
             ),
