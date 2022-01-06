@@ -14,11 +14,11 @@ class Products {
   final int? id;
   final String? name;
   final String? description;
-  final int? userId;
+  final String? userId;
   final String? categoryId;
   final String? imgName;
   final int? likeesCount;
-  final int? price;
+  final String? price;
   Products({
     required this.id,
     required this.name,
@@ -30,24 +30,24 @@ class Products {
     required this.price,
   });
   factory Products.fromMap(Map<dynamic, dynamic> json) => Products(
-    id: json["id"],
-    name: json["name"],
-    description: json["description"],
-    userId: json["user_id"],
-    categoryId: json["category_id"],
-    imgName: json["imgName"],
-    likeesCount: json["likeesCount"],
-    price: json["price"],
-  );
+        id: json["id"],
+        name: json["name"],
+        description: json["description"],
+        userId: json["user_id"],
+        categoryId: json["category_id"],
+        imgName: json["imgName"],
+        likeesCount: json["likeesCount"],
+        price: json["price"],
+      );
 
   Map<dynamic, dynamic> toMap() => {
-    "id": id,
-    "name": name,
-    "description": description,
-    "user_id": userId,
-    "category_id": categoryId,
-    "imgName": imgName,
-    "likeesCount": likeesCount,
-    "price": price,
-  };
+        "id": id,
+        "name": name,
+        "description": description,
+        "user_id": userId,
+        "category_id": categoryId,
+        "imgName": imgName,
+        "likeesCount": likeesCount,
+        "price": price,
+      };
 }
