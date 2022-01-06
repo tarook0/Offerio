@@ -90,7 +90,10 @@ class _splashScreenLState extends State<splashScreenL> {
                 ),
               ],
             ),
-            SpinKitThreeBounce(color:  sandybrown,size: 50,),
+            SpinKitThreeBounce(
+              color: sandybrown,
+              size: 50,
+            ),
           ],
         ),
       ),

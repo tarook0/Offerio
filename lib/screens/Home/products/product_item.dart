@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/Hero.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
+import 'package:my_app/screens/Home/products/product_list.dart';
 import '../../../constant.dart';
 import 'product.dart';
 
@@ -16,11 +18,11 @@ class producte_item extends StatelessWidget {
       // padding: const EdgeInsets.only(top: 5, bottom: 5.0, right: 5.0, left: 5.0),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => product_detail(
-                  assetPath: product.imgName,
-                  productPrice: product.price,
-                  productName: product.name)));
+          // Navigator.of(context).push(MaterialPageRoute(
+          //     builder: (context) => product_detail(
+          //         assetPath: product.imgName,
+          //         productPrice: product.price,
+          //         productName: product.name)));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -53,19 +55,20 @@ class producte_item extends StatelessWidget {
                   ],
                 ),
               ),
-              Hero(
-                tag: '$product.imgName',
-                child: Container(
-                  height: 75.0,
-                  width: 75.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('$product.imgName'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
+              //PhotoHero(photo: imagePath, width: 75),
+              // Hero(
+              //   tag: '$product.imgName',
+              //   child: Container(
+              //     height: 75.0,
+              //     width: 75.0,
+              //     decoration: BoxDecoration(
+              //       image: DecorationImage(
+              //         image: AssetImage('$product.imgName'),
+              //         fit: BoxFit.contain,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               const SizedBox(
                 height: 7.0,
               ),

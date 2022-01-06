@@ -9,7 +9,6 @@ import 'dart:convert';
 
 import 'image_api.dart';
 
-// @override
 // void initState() {
 //   getImage(n: imageName);
 // }

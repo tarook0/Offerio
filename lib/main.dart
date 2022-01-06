@@ -31,7 +31,7 @@ class Offerio extends StatelessWidget {
         'fifth': (context) => Settings(),
         'sixth': (context) => splashScreen(),
         'seven': (context) => splashScreenL(),
-        'ten'  : (context) => outsplashScreen(),
+        'ten': (context) => outsplashScreen(),
       },
     );
   }

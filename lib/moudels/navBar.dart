@@ -21,7 +21,7 @@ class navBar extends StatefulWidget {
 
 class _navBarState extends State<navBar> {
   final List<Widget> screens = [
-    homeScreen(),
+    Home(),
     Favorite(),
     Profile(),
     Product(),
