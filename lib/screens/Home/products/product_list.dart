@@ -38,33 +38,13 @@ class _productsListState extends State<productsList> {
         if (snapshot.hasData) {
           return ListView.builder(
             itemCount: snapshot.data!.length,
-            itemBuilder: (_, index) => Column(
-              children: [
-                buildSearchBar(),
-                buildIconList(),
-                Container(
-                  padding: EdgeInsets.only(left: 15, right: 15.0),
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: MediaQuery.of(context).size.height - 50,
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    primary: false,
-//               crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 15.0,
-                    childAspectRatio: 0.8,
-                    children: <Widget>[
-                      _buildCard(
-                          '${snapshot.data![index].name}',
-                          '${snapshot.data![index].price}',
-                          '${snapshot.data![index].imgName}',
-                          false,
-                          false,
-                          context),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            itemBuilder: (_, index) => _buildCard(
+                '${snapshot.data![index].name}',
+                '${snapshot.data![index].price}',
+                '${snapshot.data![index].imgName}',
+                false,
+                false,
+                context),
           );
         } else {
           return Center(child: CircularProgressIndicator());
