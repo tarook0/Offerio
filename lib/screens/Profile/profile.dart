@@ -24,6 +24,7 @@ var nnn;
 var eee;
   void initState() {
     super.initState();
+    getUserdata();
   setState(() {
    nnn=username;
    eee=emailaddress;

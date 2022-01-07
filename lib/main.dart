@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 // @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/Home/products/product_list.dart';
+
 import 'package:my_app/screens/sign_log/Log_in/splashScreenL.dart';
 import 'package:my_app/screens/sign_log/SignUp/splash_screen.dart';
 import 'package:my_app/screens/sign_log/log_out/out_splashscreen.dart';
@@ -32,6 +34,7 @@ class Offerio extends StatelessWidget {
         'sixth': (context) => splashScreen(),
         'seven': (context) => splashScreenL(),
         'ten': (context) => outsplashScreen(),
+       //'detail': (context) => productsList(),
       },
     );
   }

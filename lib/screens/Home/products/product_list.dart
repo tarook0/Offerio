@@ -10,6 +10,9 @@ import 'package:my_app/screens/Home/products/ProductsApi.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/constant.dart';
+import 'package:my_app/screens/Home/products/prosplash.dart';
+import 'package:my_app/screens/Home/products_api/product_details_api.dart';
+
 import 'image_api.dart';
 import 'product.dart';
 import 'dart:io';
@@ -44,6 +47,7 @@ class _productsListState extends State<productsList> {
                 '${snapshot.data![index].imgName}',
                 false,
                 false,
+                '${snapshot.data![index].id}',
                 context),
           );
         } else {
@@ -55,15 +59,14 @@ class _productsListState extends State<productsList> {
 }
 
 Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
-    bool isFavorit, context) {
+    bool isFavorit, String idd,context) {
   return Padding(
     padding: const EdgeInsets.only(top: 5, bottom: 5.0, right: 5.0, left: 5.0),
     child: InkWell(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => product_detail(
-                assetPath: imagePath, productPrice: price, productName: name),
+            builder: (context) => splashScreenpro(productID:idd),
           ),
         );
       },
@@ -88,31 +91,19 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
                 children: [
                   isFavorit
                       ? Icon(
-                          Icons.favorite,
-                          color: charcoal,
-                        )
+                    Icons.favorite,
+                    color: charcoal,
+                  )
                       : Icon(
-                          Icons.favorite_border,
-                          color: charcoal,
-                        ),
+                    Icons.favorite_border,
+                    color: charcoal,
+                  ),
                 ],
               ),
             ),
 
             PhotoHero(photo: imagePath, width: 75.0),
-            // Hero(
-            //   tag: Image.network('${Eurl}images/products/${imageName}'),
-            //   child: Container(
-            //     height: 75.0,
-            //     width: 75.0,
-            //     decoration: BoxDecoration(
-            //         // image: DecorationImage(
-            //         //   image: Image.network('${Eurl}images/products/${imageName}'),
-            //         //   fit: BoxFit.contain,
-            //         // ),
-            //         ),
-            //   ),
-            // ),
+
             const SizedBox(
               height: 7.0,
             ),
