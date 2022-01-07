@@ -33,21 +33,34 @@ class _homeScreenState extends State<homeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-        backgroundColor: const Color(0xFFFCFAF8),
-        body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                buildSearchBar(),
-                buildIconList(),
-                const SizedBox(
-                  height: 15,
-                ),
+      backgroundColor: const Color(0xFFFCFAF8),
+      body: ListView(
+        children: <Widget>[
+          buildSearchBar(),
+          buildIconList(),
+          const SizedBox(
+            height: 15.0,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 15, right: 15.0),
+            width: MediaQuery.of(context).size.width - 80,
+            height: MediaQuery.of(context).size.height - 80,
+            child: GridView.count(
+              crossAxisCount: 2,
+              primary: false,
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 15.0,
+              childAspectRatio: 0.8,
+              children: <Widget>[
+                productsList(),
                 productsList(),
               ],
             ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 }

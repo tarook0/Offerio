@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/moudels/icon-list.dart';
+import 'package:my_app/moudels/search-bar.dart';
 import '../../moudels/navBar.dart';
 import '../../constant.dart';
 import '../../moudels/app_bar.dart';
 import 'add_a_product/add_product.dart';
 import 'favorite.dart';
 import '../Profile/profile.dart';
-
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
