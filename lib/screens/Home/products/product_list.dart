@@ -32,45 +32,44 @@ class _productsListState extends State<productsList> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFCFAF8),
-      body: FutureBuilder<List<Products>>(
-        future: futurePost,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (_, index) => Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 15, right: 15.0),
-                    width: MediaQuery.of(context).size.width - 30,
-                    height: MediaQuery.of(context).size.height - 50,
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      primary: false,
+    return FutureBuilder<List<Products>>(
+      future: futurePost,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (_, index) => Column(
+              children: [
+                buildSearchBar(),
+                buildIconList(),
+                Container(
+                  padding: EdgeInsets.only(left: 15, right: 15.0),
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: MediaQuery.of(context).size.height - 50,
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    primary: false,
 //               crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 15.0,
-                      childAspectRatio: 0.8,
-                      children: <Widget>[
-                        _buildCard(
-                            '${snapshot.data![index].name}',
-                            '${snapshot.data![index].price}',
-                            '${snapshot.data![index].imgName}',
-                            false,
-                            false,
-                            context),
-                      ],
-                    ),
+                    mainAxisSpacing: 15.0,
+                    childAspectRatio: 0.8,
+                    children: <Widget>[
+                      _buildCard(
+                          '${snapshot.data![index].name}',
+                          '${snapshot.data![index].price}',
+                          '${snapshot.data![index].imgName}',
+                          false,
+                          false,
+                          context),
+                    ],
                   ),
-                ],
-              ),
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
-      ),
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }

@@ -33,21 +33,10 @@ class _homeScreenState extends State<homeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-        backgroundColor: const Color(0xFFFCFAF8),
-        body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                buildSearchBar(),
-                buildIconList(),
-                const SizedBox(
-                  height: 15,
-                ),
-                productsList(),
-              ],
-            ),
-          ),
-        ));
+      backgroundColor: const Color(0xFFFCFAF8),
+      body: productsList(),
+    );
   }
 }
