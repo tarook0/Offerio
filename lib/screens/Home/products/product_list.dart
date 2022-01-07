@@ -34,7 +34,16 @@ class _productsListState extends State<productsList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFAF8),
-      body: FutureBuilder<List<Products>>(
+       body: SingleChildScrollView(
+        child: Container(
+        child: Column(
+        children: [
+        buildSearchBar(),
+        buildIconList(),
+        const SizedBox(
+        height: 15,
+        ),
+       FutureBuilder<List<Products>>(
         future: futurePost,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -71,6 +80,9 @@ class _productsListState extends State<productsList> {
           }
         },
       ),
+   ] ),
+       ),
+    ),
     );
   }
 }
