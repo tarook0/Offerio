@@ -107,8 +107,8 @@ Future< List<Item>> getcategorydata({required String idcategory}) async{
   },
   body:jsonEncode({
     'searchBy':'category_id',
-    'Keyword': idcategory,
-  })
+    'keyword': "$idcategory",
+  }),
   );
   print(searchResponse.statusCode);
   if (searchResponse.statusCode == 200) {

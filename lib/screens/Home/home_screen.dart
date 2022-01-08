@@ -36,6 +36,7 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
+      appBar: AppBar(title: Text('Offerio'),backgroundColor: charcoal,),
       backgroundColor: const Color(0xFFFCFAF8),
       body: ListView(
         children: <Widget>[

@@ -16,6 +16,7 @@ var Dname=name;
 var Dimage=imgnamee;
 var Dcontact;
 var Ddescription;
+var amounnt;
 var ap;
 var bp;
 var cp;
@@ -30,6 +31,7 @@ class _product_detailState extends State<product_detail> {
   void initState() {
     super.initState();
     setState(() {
+      amounnt = amount;
       Dname=name;
       Dimage = imgnamee;
       Dcontact=contact;
@@ -104,22 +106,28 @@ class _product_detailState extends State<product_detail> {
                   ),
                 ),
               ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 11),
+              child: Divider(thickness: 2,color: charcoal,),
+            ),
             SizedBox(
-              height: 20.0,
+              height: 15,
             ),
             Text('description :',style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
+              fontFamily: 'EBGaramond'
             ),),
               Text(Ddescription,style: TextStyle(
-                fontSize: 17,
+                fontSize: 15,
               ),),
               Text('contact :',style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
+                  fontFamily: 'EBGaramond',
               ),),
               Text(Dcontact,style: TextStyle(
-                fontSize: 17,
+                fontSize: 15,
               ),),
             // Text('category :',style: TextStyle(
             //   fontSize: 20,
@@ -129,17 +137,19 @@ class _product_detailState extends State<product_detail> {
             //   fontSize: 17,
             // ),),
             Text('expire date :',style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
+                fontFamily: 'EBGaramond',
             ),),
             Text(ex,style: TextStyle(
-              fontSize: 17,
+              fontSize: 15,
             ),),
 
             SizedBox(
               height: 15.0,),
 
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text('first discount :',style: TextStyle(
                     fontSize: 15,
@@ -160,6 +170,7 @@ class _product_detailState extends State<product_detail> {
                 ],
               ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text('second discount :',style: TextStyle(
                   fontSize: 15,
@@ -180,6 +191,7 @@ class _product_detailState extends State<product_detail> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text('third discount :',style: TextStyle(
                   fontSize: 15,
@@ -201,27 +213,7 @@ class _product_detailState extends State<product_detail> {
             ),
               SizedBox(
                 height: 15.0,),
-            Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width - 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25.0),
-                  color: charcoal,
-                ),
-                child: const Center(
-                  child: Text(
-                    'Contucts us',
-                    style: TextStyle(
-                      fontFamily: 'VarelaRound',
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            )
+
           ],
         ),
       ),
