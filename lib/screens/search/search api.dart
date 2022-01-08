@@ -1,14 +1,14 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-
-
 
 import 'dart:convert';
 
 import '../../constant.dart';
 
-SearchRequest searchRequestFromJson(String str) => SearchRequest.fromJson(json.decode(str));
+SearchRequest searchRequestFromJson(String str) =>
+    SearchRequest.fromJson(json.decode(str));
 
 String searchRequestToJson(SearchRequest data) => json.encode(data.toJson());
 
@@ -22,18 +22,21 @@ class SearchRequest {
   String keyword;
 
   factory SearchRequest.fromJson(Map<String, dynamic> json) => SearchRequest(
-    searchBy: json["searchBy"],
-    keyword: json["keyword"],
-  );
+        searchBy: json["searchBy"],
+        keyword: json["keyword"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "searchBy": searchBy,
-    "keyword": keyword,
-  };
+        "searchBy": searchBy,
+        "keyword": keyword,
+      };
 }
-SearchForProducts searchForProductsFromJson(String str) => SearchForProducts.fromJson(json.decode(str));
 
-String searchForProductsToJson(SearchForProducts data) => json.encode(data.toJson());
+SearchForProducts searchForProductsFromJson(String str) =>
+    SearchForProducts.fromJson(json.decode(str));
+
+String searchForProductsToJson(SearchForProducts data) =>
+    json.encode(data.toJson());
 
 class SearchForProducts {
   SearchForProducts({
@@ -46,17 +49,18 @@ class SearchForProducts {
   int num;
   List<Item> items;
 
-  factory SearchForProducts.fromJson(Map<String, dynamic> json) => SearchForProducts(
-    msg: json["msg"],
-    num: json["num"],
-    items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
-  );
+  factory SearchForProducts.fromJson(Map<String, dynamic> json) =>
+      SearchForProducts(
+        msg: json["msg"],
+        num: json["num"],
+        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "msg": msg,
-    "num": num,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
-  };
+        "msg": msg,
+        "num": num,
+        "items": List<dynamic>.from(items.map((x) => x.toJson())),
+      };
 }
 
 class Item {
@@ -79,38 +83,35 @@ class Item {
   String price;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
-    id: json["id"],
-    name: json["name"],
-    description: json["description"],
-    userId: json["user_id"],
-    categoryId: json["category_id"],
-    imgName: json["imgName"],
-    price: json["price"],
-  );
+        id: json["id"],
+        name: json["name"],
+        description: json["description"],
+        userId: json["user_id"],
+        categoryId: json["category_id"],
+        imgName: json["imgName"],
+        price: json["price"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "description": description,
-    "user_id": userId,
-    "category_id": categoryId,
-    "imgName": imgName,
-    "price": price,
-  };
+        "id": id,
+        "name": name,
+        "description": description,
+        "user_id": userId,
+        "category_id": categoryId,
+        "imgName": imgName,
+        "price": price,
+      };
 }
 
-
-Future< List<Item>> getcategorydata({required String idcategory}) async{
-  final searchResponse = await http.post(Uri.parse(Eurl+"search"),headers: <String,String>{
+Future<List<Item>> getcategorydata({required String idcategory}) async {
+  final searchResponse =
+      await http.post(Uri.parse(Eurl + "search"), headers: <String, String>{
     'Charset': 'utf-8',
-    "Content-Type": "application/json",
-  },
-  body:{
-'searchBy':'category_id',
-'Keyword': idcategory,
-  }
-  );
-  print(searchResponse.statusCode);
+  }, body: {
+    'searchBy': 'category_id',
+    'Keyword': idcategory,
+  });
+
   if (searchResponse.statusCode == 200) {
     final parsed = json.decode(searchResponse.body);
     final c = parsed['items'].cast<Map<String, dynamic>>();
@@ -118,5 +119,4 @@ Future< List<Item>> getcategorydata({required String idcategory}) async{
   } else {
     throw Exception('Failed to load album');
   }
-
 }
