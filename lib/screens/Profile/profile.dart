@@ -20,15 +20,15 @@ class Profile extends StatefulWidget {
 
 
 class _ProfileState extends State<Profile> {
-var nnn;
-var eee;
+// var nnn;
+// var eee;
   void initState() {
     super.initState();
-    getUserdata();
-  setState(() {
-   nnn=username;
-   eee=emailaddress;
-  });}
+    getUserdata();}
+  // setState(() {
+  //  nnn=username;
+  //  eee=emailaddress;
+  // });}
 
 //functions to pick image from gallery or camera and set it as profile image
   File? _imageprofile;
@@ -97,7 +97,7 @@ var eee;
                       ),
                       SizedBox(width: 5,),
                       Text(
-                          nnn,
+                         'none',
                         style: TextStyle(
                         fontSize: 16,
                       ),
@@ -116,7 +116,7 @@ var eee;
                         ),),
                     SizedBox(width: 5,),
                     Text(
-                     eee,
+                     'none',
                       style: TextStyle(
                         fontSize: 16,
                       ),

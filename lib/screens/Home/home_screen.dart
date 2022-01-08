@@ -22,10 +22,10 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  // void initState() {
-  //   super.initState();
-  //   getUserdata();
-  // }
+  void initState() {
+    super.initState();
+    getUserdata();
+  }
 
   // void getProducts() {
   //   serverHandler().getProduct().then((value) => print(value));
@@ -44,18 +44,19 @@ class _homeScreenState extends State<homeScreen> {
             height: 15.0,
           ),
           Container(
-            padding: EdgeInsets.only(left: 15, right: 15.0),
-            width: MediaQuery.of(context).size.width - 80,
+           // color:Colors.red,
+            padding: EdgeInsets.only(left: 20,right:20 ),
+            width: MediaQuery.of(context).size.width - 40,
             height: MediaQuery.of(context).size.height - 80,
             child: GridView.count(
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               primary: false,
               crossAxisSpacing: 10.0,
               mainAxisSpacing: 15.0,
-              childAspectRatio: 0.8,
+              childAspectRatio: 0.6,
               children: <Widget>[
-                productsList(),
-                productsList(),
+                Center(child: productsList()),
+                //productsList(),
               ],
             ),
           ),

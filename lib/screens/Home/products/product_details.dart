@@ -57,7 +57,7 @@ class _product_detailState extends State<product_detail> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Color(0xFF545D68)),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushNamed(context, 'fourth');
           },
         ),
         title: const Text('offerio',
