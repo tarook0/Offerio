@@ -4,30 +4,31 @@ import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/screens/Home/add_a_product/splah-edit.dart';
 import 'package:my_app/screens/Home/products/prosplash.dart';
 import 'package:my_app/screens/Home/products_api/delete_product_api.dart';
+import 'package:my_app/screens/Profile/my_products.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
 import 'package:my_app/screens/search/search%20api.dart';
 
 import '../../constant.dart';
 
 class searchresults extends StatefulWidget {
-  const searchresults ({Key? key}) : super(key: key);
-
+  const searchresults({
+    Key? key,
+    required this.catId,
+  }) : super(key: key);
+  final int catId;
   @override
   _searchresultsState createState() => _searchresultsState();
 }
 
 class _searchresultsState extends State<searchresults> {
-
   late Future<List<Item>> futuresearch;
 
   @override
   void initState() {
     super.initState();
-    futuresearch = getcategorydata(idcategory: '');
+    futuresearch = getcategorydata(idcategory: '$catId');
     // getImage(n: imageName);
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,15 +58,15 @@ class _searchresultsState extends State<searchresults> {
   }
 }
 
-Widget _buildCard(String name, String imagePath, String idp, String price,bool yourProduct,
-    bool isFavorit,context) {
+Widget _buildCard(String name, String imagePath, String idp, String price,
+    bool yourProduct, bool isFavorit, context) {
   return Padding(
     padding: const EdgeInsets.only(top: 5, bottom: 5.0, right: 5.0, left: 5.0),
     child: InkWell(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => splashScreenpro(productID:idp),
+            builder: (context) => splashScreenpro(productID: idp),
           ),
         );
       },
@@ -88,34 +89,44 @@ Widget _buildCard(String name, String imagePath, String idp, String price,bool y
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(onPressed: (){
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => splachedit(productIDD: idp,),),);
-
-                  }, icon:Icon( Icons.edit,color: sandybrown,)),
-                  IconButton(onPressed: (){
-                    var D=deletepro(d1:idp);
-                    if(D==200){
-                      Navigator.pop(context);  // pop current page
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => myproducts(),
-                        ),
-                      );
-                    }
-                    //  Navigator.pushReplacement(
-                    //    context,
-                    // MaterialPageRoute(
-                    //        builder: (context) => myproducts(),),);}
-                  },
-                      icon:Icon( Icons.delete,color: sandybrown,))
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => splachedit(
+                              productIDD: idp,
+                            ),
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.edit,
+                        color: sandybrown,
+                      )),
+                  IconButton(
+                      onPressed: () {
+                        var D = deletepro(d1: idp);
+                        if (D == 200) {
+                          Navigator.pop(context); // pop current page
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => myproducts(),
+                            ),
+                          );
+                        }
+                        //  Navigator.pushReplacement(
+                        //    context,
+                        // MaterialPageRoute(
+                        //        builder: (context) => myproducts(),),);}
+                      },
+                      icon: Icon(
+                        Icons.delete,
+                        color: sandybrown,
+                      ))
                 ],
               ),
             ),
-
             PhotoHero(photo: imagePath, width: 75.0),
-
             const SizedBox(
               height: 7.0,
             ),
@@ -129,7 +140,9 @@ Widget _buildCard(String name, String imagePath, String idp, String price,bool y
             ),
             Padding(
               padding: const EdgeInsets.all(12),
-              child: Divider(thickness: 2.5,),
+              child: Divider(
+                thickness: 2.5,
+              ),
             ),
           ],
         ),
@@ -137,5 +150,3 @@ Widget _buildCard(String name, String imagePath, String idp, String price,bool y
     ),
   );
 }
-
-

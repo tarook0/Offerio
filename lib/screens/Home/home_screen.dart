@@ -39,13 +39,13 @@ class _homeScreenState extends State<homeScreen> {
       body: ListView(
         children: <Widget>[
           buildSearchBar(),
-          buildIconList(),
+          iconlist(),
           const SizedBox(
             height: 15.0,
           ),
           Container(
             //color:Colors.red,
-            padding: EdgeInsets.only(left: 20,right:20 ),
+            padding: EdgeInsets.only(left: 20, right: 20),
             width: MediaQuery.of(context).size.width - 40,
             height: MediaQuery.of(context).size.height - 10,
             child: GridView.count(
