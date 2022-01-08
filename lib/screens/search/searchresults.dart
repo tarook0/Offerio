@@ -24,7 +24,7 @@ class _searchresultsState extends State<searchresults> {
   void initState() {
     super.initState();
     futuresearch = getcategorydata(idcategory:widget.catIDD);
-    print( widget.catIDD);
+    print(widget.catIDD);
   }
 
 
