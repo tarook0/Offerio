@@ -181,7 +181,7 @@ class Product {
 // var emailaddress= "none";
 
 
-Future <List<GetProfile>> getUserdata() async{
+Future <List<Product>> getUserdata() async{
   final profileResponse = await http.get(Uri.parse(Eurl+"profile"),headers: <String,String>{
     "Authorization" :  "Bearer $responsedataToken",
     'Charset': 'utf-8',
@@ -189,9 +189,10 @@ Future <List<GetProfile>> getUserdata() async{
   });
 
   if (profileResponse.statusCode == 200) {
-    final parsed = json.decode(profileResponse.body).cast<Map<String, dynamic>>();
+    final parsed = json.decode(profileResponse.body);
+    final k = parsed['products'].cast<Map<String, dynamic>>();
 
-    return parsed.map<GetProfile>((json) => GetProfile.fromJson(json)).toList();
+    return k.map<Product>((json) => Product.fromJson(json)).toList();
   } else {
     throw Exception('Failed to load album');
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/Hero.dart';
+import 'package:my_app/moudels/app_bar.dart';
+import 'package:my_app/screens/Home/add_a_product/splah-edit.dart';
 import 'package:my_app/screens/Home/products/prosplash.dart';
+import 'package:my_app/screens/Home/products_api/delete_product_api.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
 
 import '../../constant.dart';
@@ -14,7 +17,7 @@ class myproducts extends StatefulWidget {
 
 class _myproductsState extends State<myproducts> {
 
-  late Future<List<GetProfile>> futureprofile;
+  late Future<List<Product>> futureprofile;
 
   @override
   void initState() {
@@ -27,25 +30,28 @@ class _myproductsState extends State<myproducts> {
 
   @override
     Widget build(BuildContext context) {
-      return FutureBuilder<List<GetProfile>>(
-        future: futureprofile,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (_, index) => _buildCard(
-                  '${snapshot.data![index].products[index].name}',
-                  '${snapshot.data![index].products[index].imgName}',
-                  '${snapshot.data![index].products[index].id}',
-                  '${snapshot.data![index].products[index].price4}',
-                  false,
-                  false,
-                  context),
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
+      return Scaffold(
+        appBar: buildAppBar(),
+        body: FutureBuilder<List<Product>>(
+          future: futureprofile,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (_, index) => _buildCard(
+                    '${snapshot.data![index].name}',
+                    '${snapshot.data![index].imgName}',
+                    '${snapshot.data![index].id}',
+                    '${snapshot.data![index].price4}',
+                    false,
+                    false,
+                    context),
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
       );
     }
   }
@@ -79,17 +85,30 @@ class _myproductsState extends State<myproducts> {
               Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    isFavorit
-                        ? Icon(
-                      Icons.favorite,
-                      color: charcoal,
-                    )
-                        : Icon(
-                      Icons.favorite_border,
-                      color: charcoal,
-                    ),
+                    IconButton(onPressed: (){
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                          builder: (context) => splachedit(productIDD: idp,),),);
+
+                    }, icon:Icon( Icons.edit,color: sandybrown,)),
+                    IconButton(onPressed: (){
+                     var D=deletepro(d1:idp);
+             if(D==200){
+               Navigator.pop(context);  // pop current page
+               Navigator.of(context).push(
+                 MaterialPageRoute(
+                   builder: (context) => myproducts(),
+                 ),
+               );
+             }
+               //  Navigator.pushReplacement(
+               //    context,
+               // MaterialPageRoute(
+               //        builder: (context) => myproducts(),),);}
+             },
+                      icon:Icon( Icons.delete,color: sandybrown,))
                   ],
                 ),
               ),
@@ -108,45 +127,8 @@ class _myproductsState extends State<myproducts> {
                 style: kDescriptionStyle,
               ),
               Padding(
-                padding: EdgeInsets.all(kPadding),
-                child: Container(
-                  color: charcoal,
-                  height: 1.0,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 5.0,
-                  right: 5.0,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    //todo Something special for the seller
-                    if (!yourProduct) ...[
-                      Icon(
-                        Icons.call,
-                        color: sandybrown,
-                        size: 12,
-                      ),
-                      Text(
-                        'to contact us',
-                        style: kDescriptionStyle,
-                      ),
-                    ],
-                    if (yourProduct) ...[
-                      Icon(
-                        Icons.edit,
-                        color: sandybrown,
-                        size: 12,
-                      ),
-                      Text(
-                        'Edit your product',
-                        style: kDescriptionStyle,
-                      ),
-                    ],
-                  ],
-                ),
+                padding: const EdgeInsets.all(12),
+                child: Divider(thickness: 2.5,),
               ),
             ],
           ),

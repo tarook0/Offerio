@@ -44,10 +44,10 @@ class _homeScreenState extends State<homeScreen> {
             height: 15.0,
           ),
           Container(
-           // color:Colors.red,
+            //color:Colors.red,
             padding: EdgeInsets.only(left: 20,right:20 ),
             width: MediaQuery.of(context).size.width - 40,
-            height: MediaQuery.of(context).size.height - 80,
+            height: MediaQuery.of(context).size.height - 10,
             child: GridView.count(
               crossAxisCount: 1,
               primary: false,

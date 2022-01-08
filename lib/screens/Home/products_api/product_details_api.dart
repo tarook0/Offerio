@@ -22,6 +22,7 @@ var aprice;
 var bprice;
 var cprice;
 var dprice;
+var ide;
 
 Future getdetails({required String proid}) async{
   final detailsresponse = await http.get(Uri.parse(Eurl +"products/$proid"),  //add the product id in the link instead of {id}
@@ -36,8 +37,10 @@ Future getdetails({required String proid}) async{
   z=detailsresponse.statusCode;
   print(detailsresponse.statusCode);
   if(detailsresponse.statusCode==200){
+
     detailsbody=detailsresponse.body;
     DEdetailsbody = jsonDecode(detailsbody);
+    ide=DEdetailsbody["id"];
     name=DEdetailsbody["name"];
     description=DEdetailsbody["description"];
     category=DEdetailsbody["category-id"];

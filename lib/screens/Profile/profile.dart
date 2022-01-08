@@ -8,6 +8,7 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/moudels/navBar.dart';
 import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/moudels/app_bar.dart';
+import 'package:my_app/screens/Profile/my_products.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
 import 'package:my_app/screens/Profile/profile_pic.dart';
 
@@ -138,7 +139,13 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       FloatingActionButton(
-                        onPressed: () {},
+                        heroTag: "btn1",
+                        onPressed: () {Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => myproducts(),
+                            ),
+                        );
+                        },
                         child: Icon(Icons.arrow_forward),
                         backgroundColor: sandybrown,
                       )
