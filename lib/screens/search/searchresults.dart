@@ -11,11 +11,8 @@ import 'package:my_app/screens/search/search%20api.dart';
 import '../../constant.dart';
 
 class searchresults extends StatefulWidget {
-  const searchresults({
-    Key? key,
-    required this.catId,
-  }) : super(key: key);
-  final int catId;
+  final catIDD;
+  searchresults({this.catIDD});
   @override
   _searchresultsState createState() => _searchresultsState();
 }
@@ -26,8 +23,8 @@ class _searchresultsState extends State<searchresults> {
   @override
   void initState() {
     super.initState();
-    futuresearch = getcategorydata(idcategory: '$catId');
-    // getImage(n: imageName);
+    futuresearch = getcategorydata(idcategory: widget.catIDD);
+    print(widget.catIDD);
   }
 
   @override
@@ -89,40 +86,10 @@ Widget _buildCard(String name, String imagePath, String idp, String price,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => splachedit(
-                              productIDD: idp,
-                            ),
-                          ),
-                        );
-                      },
-                      icon: Icon(
-                        Icons.edit,
-                        color: sandybrown,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        var D = deletepro(d1: idp);
-                        if (D == 200) {
-                          Navigator.pop(context); // pop current page
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => myproducts(),
-                            ),
-                          );
-                        }
-                        //  Navigator.pushReplacement(
-                        //    context,
-                        // MaterialPageRoute(
-                        //        builder: (context) => myproducts(),),);}
-                      },
-                      icon: Icon(
-                        Icons.delete,
-                        color: sandybrown,
-                      ))
+                  //  Navigator.pushReplacement(
+                  //    context,
+                  // MaterialPageRoute(
+                  //        builder: (context) => myproducts(),),);}
                 ],
               ),
             ),

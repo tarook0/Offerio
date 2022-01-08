@@ -110,7 +110,7 @@ Future< List<Item>> getcategorydata({required String idcategory}) async{
 'Keyword': idcategory,
   }
   );
-
+  print(searchResponse.statusCode);
   if (searchResponse.statusCode == 200) {
     final parsed = json.decode(searchResponse.body);
     final c = parsed['items'].cast<Map<String, dynamic>>();
