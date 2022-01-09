@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/otherlist.dart';
 import 'package:my_app/screens/Home/add_a_product/add_product.dart';
-import 'package:my_app/screens/Home/favorite.dart';
+import 'package:my_app/screens/search/home_search.dart';
 import 'package:my_app/screens/Home/home.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
 import 'package:my_app/screens/Profile/profile.dart';
@@ -22,7 +22,7 @@ class navBar extends StatefulWidget {
 class _navBarState extends State<navBar> {
   final List<Widget> screens = [
     Home(),
-    Favorite(),
+    SearchPage(),
     Profile(),
     Product(),
   ];
@@ -40,7 +40,7 @@ class _navBarState extends State<navBar> {
       floatingActionButton: Visibility(
         visible: _buttonappear,
         child: FloatingActionButton(
-          backgroundColor: persian,
+          backgroundColor: sandybrown,
           tooltip: 'add a product',
           child: Icon(Icons.add),
           onPressed: () {
@@ -94,7 +94,7 @@ class _navBarState extends State<navBar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Favorite();
+                        currentScreen = SearchPage();
                         currentTab = 1;
                         _buttonappear = true;
                       });
@@ -102,10 +102,10 @@ class _navBarState extends State<navBar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.favorite_border,
+                        Icon(Icons.search_outlined,
                             color: currentTab == 1 ? sandybrown : charcoal),
                         Text(
-                          'Favorite',
+                          'Search',
                           style: TextStyle(
                               color: currentTab == 1 ? sandybrown : charcoal,
                               fontFamily: 'EBGaramond',

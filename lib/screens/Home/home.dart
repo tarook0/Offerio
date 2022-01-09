@@ -5,7 +5,7 @@ import '../../moudels/navBar.dart';
 import '../../constant.dart';
 import '../../moudels/app_bar.dart';
 import 'add_a_product/add_product.dart';
-import 'favorite.dart';
+import '../search/home_search.dart';
 import '../Profile/profile.dart';
 
 class Home extends StatefulWidget {
