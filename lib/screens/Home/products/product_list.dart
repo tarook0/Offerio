@@ -89,15 +89,15 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  isFavorit
-                      ? Icon(
-                    Icons.favorite,
-                    color: charcoal,
-                  )
-                      : Icon(
-                    Icons.favorite_border,
-                    color: charcoal,
-                  ),
+                  // isFavorit
+                  //     ? Icon(
+                  //   Icons.favorite,
+                  //   color: charcoal,
+                  // )
+                  //     : Icon(
+                  //   Icons.favorite_border,
+                  //   color: charcoal,
+                  // ),
                 ],
               ),
             ),
@@ -130,29 +130,7 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  //todo Something special for the seller
-                  if (!yourProduct) ...[
-                    Icon(
-                      Icons.call,
-                      color: sandybrown,
-                      size: 12,
-                    ),
-                    Text(
-                      'to contact us',
-                      style: kDescriptionStyle,
-                    ),
-                  ],
-                  if (yourProduct) ...[
-                    Icon(
-                      Icons.edit,
-                      color: sandybrown,
-                      size: 12,
-                    ),
-                    Text(
-                      'Edit your product',
-                      style: kDescriptionStyle,
-                    ),
-                  ],
+                  Text('Details'),
                 ],
               ),
             ),

@@ -107,11 +107,22 @@ Future<List<Item>> getcategorydata({required String idcategory}) async {
   final searchResponse =
       await http.post(Uri.parse(Eurl + "search"), headers: <String, String>{
     'Charset': 'utf-8',
+<<<<<<< HEAD
   }, body: {
     'searchBy': 'category_id',
     'Keyword': idcategory,
   });
 
+=======
+    "Content-Type": "application/json",
+  },
+  body:jsonEncode({
+    'searchBy':'category_id',
+    'keyword': "$idcategory",
+  }),
+  );
+  print(searchResponse.statusCode);
+>>>>>>> bbd4d2c4ad7add803cafe6818945eb29cd673a65
   if (searchResponse.statusCode == 200) {
     final parsed = json.decode(searchResponse.body);
     final c = parsed['items'].cast<Map<String, dynamic>>();
