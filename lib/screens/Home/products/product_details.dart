@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:my_app/constant.dart';
 import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/moudels/navBar.dart';
+import 'package:my_app/screens/Home/products_api/like_pro_api.dart';
 import 'package:my_app/screens/Home/products_api/product_details_api.dart';
-
+import 'package:like_button/like_button.dart';
 class product_detail extends StatefulWidget {
 
 
@@ -25,8 +26,10 @@ var ad;
 var bd;
 var cd;
 var ex;
-
 var Dcategory;
+var likes;
+var idk;
+Color col =Colors.grey;
 class _product_detailState extends State<product_detail> {
   void initState() {
     super.initState();
@@ -44,7 +47,8 @@ class _product_detailState extends State<product_detail> {
       bd=seconddis;
       cd=thirddis;
       ex=expiree;
-      //cati=category;
+      likes= dlikes;
+      idk=ide;
     });
 
   }
@@ -110,6 +114,23 @@ class _product_detailState extends State<product_detail> {
               padding: const EdgeInsets.symmetric(horizontal: 11),
               child: Divider(thickness: 2,color: charcoal,),
             ),
+
+        LikeButton(
+          size: 30.0,
+          circleColor:
+          CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
+          bubblesColor: BubblesColor(
+            dotPrimaryColor: Color(0xff33b5e5),
+            dotSecondaryColor: Color(0xff0099cc),
+          ),
+          likeBuilder: (bool isLiked) {
+            return Icon(
+              Icons.favorite,
+              color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
+              size: 30.0,
+            );
+          },),
+            //Text('$likes'),
             SizedBox(
               height: 15,
             ),
@@ -129,6 +150,14 @@ class _product_detailState extends State<product_detail> {
               Text(Dcontact,style: TextStyle(
                 fontSize: 15,
               ),),
+            Text('amount :',style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'EBGaramond',
+            ),),
+            Text(amounnt,style: TextStyle(
+              fontSize: 15,
+            ),),
             // Text('category :',style: TextStyle(
             //   fontSize: 20,
             //   fontWeight: FontWeight.bold,

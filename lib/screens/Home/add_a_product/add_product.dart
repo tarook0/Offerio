@@ -122,7 +122,7 @@ class _ProductState extends State<Product> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  controller:  _productcontactTEC,
+                  controller:  _productamountTEC,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: 'how many of the product is there?',
@@ -139,14 +139,13 @@ class _ProductState extends State<Product> {
                   ),
                 ),
               ),
-
               Text(
                 'Contact',
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  controller:  _productamountTEC,
+                  controller:  _productcontactTEC,
                   decoration: InputDecoration(
                     hintText: 'Email or Phone Number',
                     fillColor: charcoal.withOpacity(0.2),
