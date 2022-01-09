@@ -5,7 +5,7 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/moudels/Hero.dart';
 import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
-import 'package:my_app/screens/Home/favorite.dart';
+import 'package:my_app/screens/search/home_search.dart';
 import 'package:my_app/screens/Home/products/ProductsApi.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/home_screen.dart';
@@ -59,14 +59,14 @@ class _productsListState extends State<productsList> {
 }
 
 Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
-    bool isFavorit, String idd,context) {
+    bool isFavorit, String idd, context) {
   return Padding(
     padding: const EdgeInsets.only(top: 5, bottom: 5.0, right: 5.0, left: 5.0),
     child: InkWell(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => splashScreenpro(productID:idd),
+            builder: (context) => splashScreenpro(productID: idd),
           ),
         );
       },
@@ -101,9 +101,7 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
                 ],
               ),
             ),
-
             PhotoHero(photo: imagePath, width: 75.0),
-
             const SizedBox(
               height: 7.0,
             ),

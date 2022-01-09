@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/moudels/Hero.dart';
 import 'package:my_app/moudels/app_bar.dart';
-import 'package:my_app/screens/Home/add_a_product/splah-edit.dart';
 import 'package:my_app/screens/Home/products/prosplash.dart';
-import 'package:my_app/screens/Home/products_api/delete_product_api.dart';
-import 'package:my_app/screens/Profile/my_products.dart';
-import 'package:my_app/screens/Profile/profile_api.dart';
 import 'package:my_app/screens/search/search%20api.dart';
 
 import '../../constant.dart';
 
-class searchresults extends StatefulWidget {
-  final catIDD;
-  searchresults({this.catIDD});
+class home_screen_name extends StatefulWidget {
+  final sname;
+  home_screen_name({this.sname});
+
   @override
-  _searchresultsState createState() => _searchresultsState();
+  _home_screen_nameState createState() => _home_screen_nameState();
 }
 
-class _searchresultsState extends State<searchresults> {
-  late Future<List<Item>> futuresearch;
-
+class _home_screen_nameState extends State<home_screen_name> {
+  late Future<List<Item>> futuresearchName;
   @override
   void initState() {
     super.initState();
-    futuresearch = getcategorydata(idcategory: widget.catIDD);
-    print(widget.catIDD);
+    futuresearchName = getnamedata(name: widget.sname);
   }
 
   @override
@@ -32,7 +27,7 @@ class _searchresultsState extends State<searchresults> {
     return Scaffold(
       appBar: buildAppBar(),
       body: FutureBuilder<List<Item>>(
-        future: futuresearch,
+        future: futuresearchName,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
