@@ -11,9 +11,13 @@ import 'package:my_app/screens/Home/products/product.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
 import 'package:my_app/screens/Home/products/product_list.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
+import 'package:my_app/screens/Profile/profile_info.dart';
 import 'package:my_app/screens/search/searchresults.dart';
 import '../../constant.dart';
 
+
+var s = productsList();
+var y = null;
 class homeScreen extends StatefulWidget {
   const homeScreen({Key? key}) : super(key: key);
 
@@ -22,16 +26,14 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  void initState() {
-    super.initState();
-    //getUserdata();
-  }
-
-  // void getProducts() {
-  //   serverHandler().getProduct().then((value) => print(value));
-  // }
 
   @override
+
+  void initState() {
+    super.initState();
+    Profileinfo();
+  }
+
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
@@ -59,13 +61,11 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '1'),
-                                    ),
-                                  );
-                                  print('hello');
+                                  setState(() {
+                                    y=null;
+                                     //searchresults(catIDD: '1');
+                                  });
+                                  print(y);
                                 },
                               ),
                               backgroundImage:
@@ -86,13 +86,11 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '2'),
-                                    ),
-                                  );
-                                  print('hello');
+                                  setState(() {
+
+                                    y= searchresults(catIDD: '2');
+                                  });
+                                  print(y);
                                 },
                               ),
                               backgroundImage:
@@ -113,13 +111,10 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '3'),
-                                    ),
-                                  );
-                                  print('hello');
+                                  setState(() {
+                                    y= searchresults(catIDD: '3');
+                                  });
+                                  print(y);
                                 },
                               ),
                               backgroundImage:
@@ -140,12 +135,9 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '4'),
-                                    ),
-                                  );
+                                  setState(() {
+                                    y= searchresults(catIDD: '4');
+                                  });
                                   print('hello');
                                 },
                               ),
@@ -167,13 +159,10 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '5'),
-                                    ),
-                                  );
-                                  print('hello');
+                                  setState(() {
+                                    y= searchresults(catIDD: '5');
+                                  });
+                                  print(y);
                                 },
                               ),
                               backgroundImage:
@@ -194,12 +183,9 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '6'),
-                                    ),
-                                  );
+                                  setState(() {
+                                    y= searchresults(catIDD: '6');
+                                  });
                                   print('hello');
                                 },
                               ),
@@ -222,12 +208,9 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '7'),
-                                    ),
-                                  );
+                                  setState(() {
+                                    y=searchresults(catIDD: '7');
+                                  });
                                   print('hello');
                                 },
                               ),
@@ -249,12 +232,9 @@ class _homeScreenState extends State<homeScreen> {
                             CircleAvatar(
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          searchresults(catIDD: '8'),
-                                    ),
-                                  );
+                                  setState(() {
+                                    y = searchresults(catIDD:'8');
+                                  });
                                   print('hello');
                                 },
                               ),
@@ -288,7 +268,9 @@ class _homeScreenState extends State<homeScreen> {
               mainAxisSpacing: 15.0,
               childAspectRatio: 0.6,
               children: <Widget>[
-                Center(child: productsList()),
+                Center(child:
+                y==null ? s
+               : y,),
               ],
             ),
           ),

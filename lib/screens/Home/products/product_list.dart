@@ -89,15 +89,6 @@ Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // isFavorit
-                  //     ? Icon(
-                  //   Icons.favorite,
-                  //   color: charcoal,
-                  // )
-                  //     : Icon(
-                  //   Icons.favorite_border,
-                  //   color: charcoal,
-                  // ),
                 ],
               ),
             ),

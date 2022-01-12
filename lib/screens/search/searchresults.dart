@@ -29,9 +29,7 @@ class _searchresultsState extends State<searchresults> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: FutureBuilder<List<Item>>(
+    return  FutureBuilder<List<Item>>(
         future: futuresearch,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -50,7 +48,7 @@ class _searchresultsState extends State<searchresults> {
             return Center(child: CircularProgressIndicator());
           }
         },
-      ),
+
     );
   }
 }

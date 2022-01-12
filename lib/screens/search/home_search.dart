@@ -47,78 +47,68 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: TextField(
-          cursorColor: Colors.grey,
-          controller: searchController,
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search_outlined, color: sandybrown),
-            suffixIcon: IconButton(
-              icon: Icon(
-                Icons.search,
-                color: charcoal,
+    return Stack(
+        children: [
+          Container(
+              //padding: EdgeInsets.symmetric(horizontal: 20),
+              //constraints: BoxConstraints.expand(),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('images/search.png'), fit: BoxFit.cover),
               ),
-              onPressed: () {
-                getnamedata(name: searchController.text);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => home_screen_name(
-                    sname: searchController.text,
-                  ),
-                ));
-              },
-            ),
-            hintText: 'seacrh for product ...',
-            hintStyle: TextStyle(
-              fontFamily: 'EBGaramond',
-              fontSize: 17,
-            ),
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: charcoal,
+            child: Scaffold(
+              appBar: buildAppBar(),
+              backgroundColor: Colors.transparent,
+              body: SafeArea(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: TextField(
+                        cursorColor: Colors.grey,
+                        controller: searchController,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              Icons.search,
+                              color: charcoal,
+                            ),
+                            onPressed: () {
+                              getnamedata(name: searchController.text);
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => home_screen_name(
+                                  sname: searchController.text,
+                                ),
+                              ));
+                            },
+                          ),
+                          hintText: 'seacrh for product ...',
+                          hintStyle: TextStyle(
+                            fontFamily: 'EBGaramond',
+                            fontSize: 20,
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: charcoal,
+                            ),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: charcoal,
+                              width: 1.5,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: charcoal,
-                width: 1.5,
-              ),
-            ),
-          ),
-        ),
-      ),
-      // appBar: AppBar(
-      //   // The search area here
-      //   foregroundColor: charcoal,
-      //   title: Container(
-      //     width: double.infinity,
-      //     height: 100,
-      //     decoration: BoxDecoration(
-      //         color: Colors.white, borderRadius: BorderRadius.circular(5)),
-      //     child: Center(
-      //       child: TextField(
-      //         controller: searchController,
-      //         decoration: InputDecoration(
-      //             prefixIcon: Icon(Icons.search),
-      //             suffixIcon: IconButton(
-      //               icon: Icon(Icons.search),
-      //               onPressed: () {
-      //                 getnamedata(name: searchController.text);
-      //                 Navigator.of(context).push(MaterialPageRoute(
-      //                   builder: (context) => home_screen_name(
-      //                     sname: searchController.text,
-      //                   ),
-      //                 ));
-      //               },
-      //             ),
-      //             hintText: 'Search...',
-      //             border: InputBorder.none),
-      //       ),
-      //     ),
-      //   ),
-      // ),
-    );
+          )
+        ],
+      );
+
   }
 }

@@ -22,7 +22,7 @@ class PhotoHero extends StatelessWidget {
             child: Image.network(
               '${Eurl}images/${photo}',
               fit: BoxFit.cover,
-              width: 75,
+              width: 90,
               height: 75,
             ),
           ),

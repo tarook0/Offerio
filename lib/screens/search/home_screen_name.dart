@@ -25,7 +25,7 @@ class _home_screen_nameState extends State<home_screen_name> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: AppBar(backgroundColor: charcoal,),
       body: FutureBuilder<List<Item>>(
         future: futuresearchName,
         builder: (context, snapshot) {

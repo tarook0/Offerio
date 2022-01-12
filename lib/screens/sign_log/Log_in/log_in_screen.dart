@@ -172,35 +172,28 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
-                        height: 120,
+                        height: 40,
                       ),
-                      Center(
-                        child: OutlinedButton(
-                          onPressed: () {
-                            if (!_formkey1.currentState.validate()) {
-                              return;
-                            } else {
-                              Navigator.pushNamed(context, 'seven');
-                              // // ignore: unrelated_type_equality_checks
-                              // logInPostdata(
-                              //     email: EmailController.text,
-                              //     password: PasswordController.text);
-                              // Navigator.pushNamed(context, 'blabla');
-                            }
-                          },
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: Size(100, 35),
-                              side: BorderSide(width: 1.5, color: white),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.0),
-                              )),
-                          child: Text(
-                            'Submit',
-                            style: TextStyle(
-                              color: white,
-                              fontSize: 17.5,
-                              fontFamily: 'EBGaramond',
-                            ),
+                      OutlinedButton(
+                        onPressed: () {
+                          if (!_formkey1.currentState.validate()) {
+                            return;
+                          } else {
+                            Navigator.pushNamed(context, 'seven');
+
+                          }
+                        },
+                        style: OutlinedButton.styleFrom(
+                            minimumSize: Size(100, 35),
+                            side: BorderSide(width: 1.5, color: charcoal),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                            )),
+                        child: Text(
+                          'Submit',
+                          style: TextStyle(
+                            color: charcoal,
+                            fontSize: 16,
                           ),
                         ),
                       ),

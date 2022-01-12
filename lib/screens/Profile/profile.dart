@@ -10,6 +10,7 @@ import 'package:my_app/screens/Home/add_a_product/add_product.dart';
 import 'package:my_app/moudels/app_bar.dart';
 import 'package:my_app/screens/Profile/my_products.dart';
 import 'package:my_app/screens/Profile/profile_api.dart';
+import 'package:my_app/screens/Profile/profile_info.dart';
 import 'package:my_app/screens/Profile/profile_pic.dart';
 
 class Profile extends StatefulWidget {
@@ -21,16 +22,16 @@ class Profile extends StatefulWidget {
 
 
 class _ProfileState extends State<Profile> {
-// var nnn;
-// var eee;
+var nnn;
+var eee;
   void initState() {
     super.initState();
-    getUserdata();}
-  // setState(() {
-  //  nnn=username;
-  //  eee=emailaddress;
-  // });}
-
+    //getUserdata();}
+    setState(() {
+      nnn = username;
+      eee = emailaddress;
+    });
+  }
 //functions to pick image from gallery or camera and set it as profile image
   File? _imageprofile;
   final pickerprofile = ImagePicker();
@@ -98,7 +99,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       SizedBox(width: 5,),
                       Text(
-                         'none',
+                         nnn,
                         style: TextStyle(
                         fontSize: 16,
                       ),
@@ -117,7 +118,7 @@ class _ProfileState extends State<Profile> {
                         ),),
                     SizedBox(width: 5,),
                     Text(
-                     'none',
+                     eee,
                       style: TextStyle(
                         fontSize: 16,
                       ),

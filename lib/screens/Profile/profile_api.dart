@@ -175,10 +175,7 @@ class Product {
   };
 }
 
-// var PRdata;
-// var DecodedPRdata;
-// var username = "none";
-// var emailaddress= "none";
+
 
 
 Future <List<Product>> getUserdata() async{
@@ -197,14 +194,6 @@ Future <List<Product>> getUserdata() async{
     throw Exception('Failed to load album');
   }
 }
-  //print(profileResponse.statusCode);
-//   if (profileResponse.statusCode==200){
-//
-//     PRdata = profileResponse.body;
-//     DecodedPRdata =jsonDecode(PRdata);
-//     username = DecodedPRdata['name'];
-//     emailaddress = DecodedPRdata['email'];
-//   }
-//
-//
-// }
+
+
+
