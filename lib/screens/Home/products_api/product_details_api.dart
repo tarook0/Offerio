@@ -24,6 +24,8 @@ var cprice;
 var dprice;
 var ide;
 var dlikes;
+var liked;
+var view;
 Future getdetails({required String proid}) async{
   final detailsresponse = await http.get(Uri.parse(Eurl +"products/$proid"),  //add the product id in the link instead of {id}
   headers: <String,String>{
@@ -56,5 +58,9 @@ Future getdetails({required String proid}) async{
     cprice=DEdetailsbody["price-3"];
     dprice=DEdetailsbody["price-4"];
     dlikes=DEdetailsbody["likesCount"];
+    liked=DEdetailsbody["isLiked"];
+    view=DEdetailsbody["views"];
+
+
   }
 }

@@ -63,7 +63,7 @@ class _editProductState extends State<editProduct> {
               Padding(
                 padding: const EdgeInsets.all(18),
                 child: Text(
-                  'If you want to sell a product , then add it here :',
+                  'Here you can update your product info :',
                   style: TextStyle(fontSize: 23, fontFamily: 'EBGaramond'),
                 ),
               ),

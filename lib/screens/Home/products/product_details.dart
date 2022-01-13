@@ -7,14 +7,14 @@ import 'package:my_app/moudels/navBar.dart';
 import 'package:my_app/screens/Home/products_api/like_pro_api.dart';
 import 'package:my_app/screens/Home/products_api/product_details_api.dart';
 import 'package:like_button/like_button.dart';
+
 class product_detail extends StatefulWidget {
-
-
-   @override
+  @override
   State<product_detail> createState() => _product_detailState();
 }
-var Dname=name;
-var Dimage=imgnamee;
+
+var Dname = name;
+var Dimage = imgnamee;
 var Dcontact;
 var Ddescription;
 var amounnt;
@@ -29,254 +29,313 @@ var ex;
 var Dcategory;
 var likes;
 var idk;
-Color col =Colors.grey;
+var dliked;
+var views;
+Color col = Colors.grey;
+
 class _product_detailState extends State<product_detail> {
   void initState() {
     super.initState();
     setState(() {
       amounnt = amount;
-      Dname=name;
+      Dname = name;
       Dimage = imgnamee;
-      Dcontact=contact;
-      Ddescription= description;
+      Dcontact = contact;
+      Ddescription = description;
       ap = aprice;
-      bp=bprice;
-      dp=dprice;
-      cp=cprice;
-      ad=firstdis;
-      bd=seconddis;
-      cd=thirddis;
-      ex=expiree;
-      likes= dlikes;
-      idk=ide;
+      bp = bprice;
+      dp = dprice;
+      cp = cprice;
+      ad = firstdis;
+      bd = seconddis;
+      cd = thirddis;
+      ex = expiree;
+      views=view;
+      idk = ide;
+      dliked = liked;
     });
+  }
 
+  depressed({required k}) {
+    likeProduct(productID: k);
+    setState(() {
+      dliked = !dliked;
+      likes = dlikes;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: charcoal,
         elevation: 0.0,
-        centerTitle: true,
+        centerTitle: false,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF545D68)),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pushNamed(context, 'fourth');
           },
         ),
-        title: const Text('offerio',
+        title: const Text('Offerio',
             style: TextStyle(
                 fontFamily: 'Varela',
                 fontSize: 20.0,
-                color: Color(0xFF545D68))),
-      ),
+                color:Colors.white,
+      ),),),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text(
-              Dname,
-                style: TextStyle(
-                  fontFamily: 'Varela',
-                  fontSize: 42.0,
-                  fontWeight: FontWeight.bold,
-                  color: charcoal,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-        Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Hero(
-                   tag: 'tag$Dimage',
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      //onTap: onTap,
-                      child: Image.network(
-                        '${Eurl}images/${Dimage}',
-                        fit: BoxFit.cover,
-                        height: 300,
+            Container(
+              decoration: BoxDecoration(
+                  color: sandybrown.withOpacity(0.3),
+                  borderRadius:
+                      BorderRadius.only(bottomLeft: Radius.circular(25),bottomRight: Radius.circular(25), )),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Hero(
+                      tag: 'tag$Dimage',
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          //onTap: onTap,
+                          child: Image.network(
+                            '${Eurl}images/${Dimage}',
+                            fit: BoxFit.cover,
+                            height: 300,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                  Text(
+                    Dname,
+                    style: TextStyle(
+                      fontFamily: 'EBGaramond',
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: charcoal,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 7,
+                  ),
+                ],
               ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 11),
-              child: Divider(thickness: 2,color: charcoal,),
             ),
 
-        LikeButton(
-          size: 30.0,
-          circleColor:
-          CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
-          bubblesColor: BubblesColor(
-            dotPrimaryColor: Color(0xff33b5e5),
-            dotSecondaryColor: Color(0xff0099cc),
-          ),
-          likeBuilder: (bool isLiked) {
-            return Icon(
-              Icons.favorite,
-              color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-              size: 30.0,
-            );
-          },),
-            //Text('$likes'),
+            // Text('$likes'),
             SizedBox(
               height: 15,
             ),
-            Text('description :',style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'EBGaramond'
-            ),),
-              Text(Ddescription,style: TextStyle(
-                fontSize: 15,
-              ),),
-              Text('contact :',style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-                  fontFamily: 'EBGaramond',
-              ),),
-              Text(Dcontact,style: TextStyle(
-                fontSize: 15,
-              ),),
-            Text('amount :',style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'EBGaramond',
-            ),),
-            Text(amounnt,style: TextStyle(
-              fontSize: 15,
-            ),),
-            // Text('category :',style: TextStyle(
-            //   fontSize: 20,
-            //   fontWeight: FontWeight.bold,
-            // ),),
-            // Text(Dcategory,style: TextStyle(
-            //   fontSize: 17,
-            // ),),
-            Text('expire date :',style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-                fontFamily: 'EBGaramond',
-            ),),
-            Text(ex,style: TextStyle(
-              fontSize: 15,
-            ),),
 
-            SizedBox(
-              height: 15.0,),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('first discount :',style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(ad,style: TextStyle(
-                    fontSize: 15,
-                  ),),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text('$ap  \$',style: TextStyle(
-                    fontSize: 15,
-                  ),),
+                  IconButton(
+                      onPressed: () {
+                        depressed(k: ide);
+                      },
+                      icon: Icon(
+                        dliked ? Icons.favorite : Icons.favorite_outline,
+                        color: dliked ? sandybrown : charcoal,
+                        size: 30,
+                      )),
+                  Column(
+                    children: [
+                      Icon(Icons.visibility_outlined,color: sandybrown,),
+                      Text('$views',style: TextStyle(color: sandybrown),),
+                    ],
+                  )
                 ],
               ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text('second discount :',style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),),
-                SizedBox(
-                  width: 20,
-                ),
-                Text(bd,style: TextStyle(
-                  fontSize: 15,
-                ),),
-                SizedBox(
-                  width: 20,
-                ),
-                Text('$bp  \$',style: TextStyle(
-                  fontSize: 15,
-                ),),
-              ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('third discount :',style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),),
-                SizedBox(
-                  width: 20,
+                Text(
+                  'Description :',
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'EBGaramond'),
                 ),
-                Text(cd,style: TextStyle(
-                  fontSize: 15,
-                ),),
-                SizedBox(
-                  width: 20,
+                SizedBox(width: 10,),
+                Text(
+                  Ddescription,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
                 ),
-                Text('$cp  \$',style: TextStyle(
-                  fontSize: 15,
-                ),),
               ],
             ),
-              SizedBox(
-                height: 15.0,),
 
+            Row(
+              children: [
+                Text(
+                  'Contact :',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'EBGaramond',
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Text(
+                  Dcontact,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  'Amount :',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'EBGaramond',
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Text(
+                  amounnt,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  'Expire date :',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'EBGaramond',
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Text(
+                  ex,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'first discount :',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  ad,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  '$ap  \$',
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'second discount :',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  bd,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  '$bp  \$',
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'third discount :',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  cd,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  '$cp  \$',
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // ignore_for_file: prefer_typing_uninitialized_variables
 //

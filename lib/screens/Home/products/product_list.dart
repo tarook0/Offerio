@@ -5,6 +5,7 @@ import 'package:my_app/constant.dart';
 import 'package:my_app/moudels/Hero.dart';
 import 'package:my_app/moudels/icon-list.dart';
 import 'package:my_app/moudels/search-bar.dart';
+import 'package:my_app/screens/Home/products_api/like_pro_api.dart';
 import 'package:my_app/screens/search/home_search.dart';
 import 'package:my_app/screens/Home/products/ProductsApi.dart';
 import 'package:my_app/screens/Home/products/product_details.dart';
@@ -17,6 +18,8 @@ import 'image_api.dart';
 import 'product.dart';
 import 'dart:io';
 
+
+
 class productsList extends StatefulWidget {
   const productsList({Key? key}) : super(key: key);
 
@@ -26,6 +29,7 @@ class productsList extends StatefulWidget {
 
 class _productsListState extends State<productsList> {
   late Future<List<Products>> futurePost;
+
 
   @override
   void initState() {
@@ -41,14 +45,15 @@ class _productsListState extends State<productsList> {
         if (snapshot.hasData) {
           return ListView.builder(
             itemCount: snapshot.data!.length,
-            itemBuilder: (_, index) => _buildCard(
-                '${snapshot.data![index].name}',
-                '${snapshot.data![index].price}',
-                '${snapshot.data![index].imgName}',
-                false,
-                false,
-                '${snapshot.data![index].id}',
-                context),
+            itemBuilder: (_, index) =>
+                _buildCard(
+                    '${snapshot.data![index].name}',
+                    '${snapshot.data![index].price}',
+                    '${snapshot.data![index].imgName}',
+                    false,
+                    false,
+                    '${snapshot.data![index].id}',
+                    context),
           );
         } else {
           return Center(child: CircularProgressIndicator());
@@ -56,76 +61,67 @@ class _productsListState extends State<productsList> {
       },
     );
   }
-}
 
-Widget _buildCard(String name, String price, String imagePath, bool yourProduct,
-    bool isFavorit, String idd, context) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 5, bottom: 5.0, right: 5.0, left: 5.0),
-    child: InkWell(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => splashScreenpro(productID: idd),
+
+  Widget _buildCard(String name, String price, String imagePath,
+      bool yourProduct,
+      bool isFavorit, String idd, context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          top: 5, bottom: 5.0, right: 5.0, left: 5.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => splashScreenpro(productID: idd),
+            ),
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 3.0,
+                blurRadius: 5.0,
+              )
+            ],
+            color: Colors.white,
           ),
-        );
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 3.0,
-              blurRadius: 5.0,
-            )
-          ],
-          color: Colors.white,
-        ),
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                ],
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [],
+                ),
               ),
-            ),
-            PhotoHero(photo: imagePath, width: 75.0),
-            const SizedBox(
-              height: 7.0,
-            ),
-            Text(
-              price,
-              // style: kDescriptionStyle2,
-            ),
-            Text(
-              name,
-              style: kDescriptionStyle,
-            ),
-            Padding(
-              padding: EdgeInsets.all(kPadding),
-              child: Container(
-                color: charcoal,
-                height: 1.0,
+              PhotoHero(photo: imagePath, width: 75.0),
+              const SizedBox(
+                height: 7.0,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 5.0,
-                right: 5.0,
+              Text(
+                '$price \$',
+                style: TextStyle(color: persian),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text('Details'),
-                ],
+              Text(
+                name,
+               style: TextStyle(color:charcoal),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 17),
+                child: Divider(
+                  thickness: 2,
+                  color: charcoal.withOpacity(0.6),
+                ),
+              ),
+              Text('Details',style: TextStyle(color: charcoal),),
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

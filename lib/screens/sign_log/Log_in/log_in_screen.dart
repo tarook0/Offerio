@@ -197,6 +197,14 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
+                      Row(
+                        children: [
+                          Text ('Don\'t have an account?',style: TextStyle(fontSize: 12,),),
+                          TextButton(onPressed:(){
+                            Navigator.pushNamed(context, 'third');
+                          } , child: Text('Sign up',style: TextStyle(fontSize: 12,color: persian),)),
+                        ],
+                      )
                     ]),
               )),
             ),

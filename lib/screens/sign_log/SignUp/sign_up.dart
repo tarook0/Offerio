@@ -198,7 +198,7 @@ class _SignupState extends State<Signup> {
                               fontSize: 16.5,
                             ),
                             prefixIcon: Icon(
-                              Icons.lock,
+                              Icons.check,
                               color: charcoal,
                             ),
                             focusedBorder: UnderlineInputBorder(
@@ -246,6 +246,14 @@ class _SignupState extends State<Signup> {
                             ),
                           ),
                         ),
+                      ),
+                      Row(
+                        children: [
+                          Text ('Already have an account ?',style: TextStyle(fontSize: 12),),
+                          TextButton(onPressed:(){
+                            Navigator.pushNamed(context, 'third');
+                          } , child: Text('Log in',style: TextStyle(fontSize: 12,color: persian))),
+                        ],
                       ),
                     ],
                   ),

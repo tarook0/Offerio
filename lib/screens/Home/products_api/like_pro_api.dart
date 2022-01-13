@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import '../../../constant.dart';
 
 
-Future <bool?>likeProduct({required productID,required bool isliked}) async{
+Future likeProduct({required productID,}) async{
 try{
   final likeresponse = await http.post(Uri.parse(Eurl +"like"),
   headers: <String,String>{
@@ -20,10 +20,9 @@ try{
 
   );
   print(likeresponse.statusCode);
-return true;
+
 }
 catch(error){
   print(error.toString());
-return false;
-}
-}
+
+}}

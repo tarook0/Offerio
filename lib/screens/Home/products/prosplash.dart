@@ -27,7 +27,7 @@ class _splashScreenproState extends State<splashScreenpro> {
 
     getdetails(proid: widget.productID);
 
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 2), () {
       if (z == 200) {
         Navigator.of(context).push(
           MaterialPageRoute(
